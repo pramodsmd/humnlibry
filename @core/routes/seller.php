@@ -26,6 +26,9 @@ Route::group(['prefix'=>'seller','middleware'=>['auth','inactiveuser','BuyerChec
     Route::post('/get-child-category-by-subcategory', 'Frontend\SellerController@getChildCategory')->name('seller.subcategory.child.category');
     Route::match(['get','post'],'/add-services','Frontend\SellerController@addServices')->name('seller.add.services');
 
+    //Route::get('/view-package','Frontend\SellerController@ViewPackakage')->name('seller.view.package');
+
+
     Route::get('/service-attributes','Frontend\SellerController@serviceAttributes')->name('seller.services.attributes');
     Route::post('/add-service-attributes','Frontend\SellerController@addServiceAttributes')->name('seller.services.attributes.add');
     Route::match(['get','post'],'/add-service-attributes-by-id/{id?}','Frontend\SellerController@addServiceAttributesById')->name('seller.services.attributes.add.byid');

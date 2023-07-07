@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin-home/subscription','as'=>'admin.', 'middleware'
 //show seller subscription
 Route::group(['prefix'=>'seller','as'=>'seller.','middleware'=>['auth','inactiveuser','BuyerCheck','userEmailVerify','setlang','globalVariable']],function() {
     Route::get('/subscription', 'Frontend\SellerSubsController@subscriptions')->name('subscription.all');
+    Route::get('/view-subscription', 'Frontend\SellerSubsController@subscriptions')->name('view.subscription.all');
     Route::post('/subscription/renew', 'Frontend\SellerSubsController@sub_renew')->name('subscription.renew');
 });
 

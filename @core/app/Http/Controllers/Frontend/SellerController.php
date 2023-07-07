@@ -498,8 +498,9 @@ class SellerController extends Controller
     public function addServices(Request $request)
     {
         $commissionGlobal = AdminCommission::first();
+
         if(moduleExists('Subscription') && $commissionGlobal->system_type == 'subscription' && empty(auth('web')->user()->subscribedSeller)){
-            toastr_error(__('you must have to subscribe any of our package in booking to start selling your services.'));
+            toastr_error(__('you must have to subscribe any of our package in booking to start providing your services.'));
             return back();
         }
 
@@ -520,26 +521,28 @@ class SellerController extends Controller
             //commission type check
             $commission = AdminCommission::first();
                 if($commission->system_type == 'subscription'){
-                if(subscriptionModuleExistsAndEnable('Subscription')){
+                // if(subscriptionModuleExistsAndEnable('Subscription')){
                     $seller_subscription = \Modules\Subscription\Entities\SellerSubscription::where('seller_id', Auth::guard('web')->user()->id)->first();
                         // Seller Service count
                        $seller_service_count = Service::where('seller_id', Auth::guard('web')->user()->id)->count();
-                    if(is_null($seller_subscription)){
+                      
+                       if(is_null($seller_subscription)){
                         toastr_error(__('you have to subscibe a package to create services'));
                         return redirect()->back();
                    }
                     if ($seller_subscription->type === 'monthly'){
                         // check seller connect,service,expire date
-                        if ($seller_subscription->connect == 0){
+                        // if ($seller_subscription->connect == 0){
+                        //     toastr_error(__('Your Subscription is expired'));
+                        //     return redirect()->back();
+                         // }
+                        if($seller_subscription->initial_service <= $seller_service_count){
                             toastr_error(__('Your Subscription is expired'));
                             return redirect()->back();
-                        }elseif ($seller_subscription->initial_service <= $seller_service_count){
+                          }elseif ($seller_subscription->expire_date <= Carbon::now()){
                             toastr_error(__('Your Subscription is expired'));
                             return redirect()->back();
-                        }elseif ($seller_subscription->expire_date <= Carbon::now()){
-                            toastr_error(__('Your Subscription is expired'));
-                            return redirect()->back();
-                        }
+                          }
                     }elseif ($seller_subscription->type === 'yearly'){
                         // check seller connect,service,expire date
                         if ($seller_subscription->connect == 0){
@@ -553,7 +556,7 @@ class SellerController extends Controller
                             return redirect()->back();
                         }
                     }
-                }
+                // }
             }
 
             $request->validate([
@@ -630,6 +633,22 @@ class SellerController extends Controller
             return view('frontend.user.seller.services.add-service', compact('categories', 'sub_categories'));
         }
     }
+
+    
+    public function ViewPackakage(){
+        dd('csadcds');
+        $categories = Category::where('status', 1)->get();
+        $sub_categories = Subcategory::all();
+
+        if(get_static_option('dashboard_variant_seller') == '02'){
+            return view('frontend.user.seller.services.partials.subscription-package.blade', compact('categories', 'sub_categories'));
+        }else{
+            return view('frontend.user.seller.services.add-service', compact('categories', 'sub_categories'));
+        }
+
+    }
+
+
 
     public function getSubcategory(Request $request)
     {

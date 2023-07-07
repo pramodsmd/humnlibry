@@ -103,8 +103,10 @@ class User extends Authenticatable
         if(!moduleExists('Subscription')){
             return null;
         }
-        return $this->hasOne(SellerSubscription::class,'seller_id','id')->select('id','seller_id','expire_date','subscription_id');
+        return $this->hasOne(SellerSubscription::class,'seller_id','id')->select('id','seller_id','expire_date','subscription_id','initial_service','unique_profile','profile_searchable','booking_availability','booking_calendar','booking_counter');
     }
+
+    
 
 
 }

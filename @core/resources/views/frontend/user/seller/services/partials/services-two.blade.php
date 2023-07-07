@@ -109,7 +109,7 @@
                                             @if(Carbon\Carbon::parse(auth('web')->user()->subscribedSeller->expire_date) <= \Carbon\Carbon::today())
                                              <div class="col-lg-12">
                                                 <div class="alert alert-warning d-flex justify-content-between">{{__('your package has been expired, please renew it')}}
-                                                    <a href="{{getSlugFromReadingSetting('price_plan_page') ? url('/'.getSlugFromReadingSetting('price_plan_page')) : url('/price-plan')}}" target="_self" class="dashboard_table__title__btn btn-bg-1 radius-5">{{__('view packages')}}</a>
+                                                    <a href="{{url('/price-plan')}}" target="_self" class="dashboard_table__title__btn btn-bg-1 radius-5">{{__('view packages')}}</a>
                                                 </div>
                                             </div>
                                           @else
@@ -119,8 +119,10 @@
                                           @endif
                                     @else
                                    <div class="col-lg-12">
-                                    <div class="alert alert-warning d-flex justify-content-between">{{__('you must have to subscribe any of our package in order to start selling your services.')}}
-                                        <a href="{{getSlugFromReadingSetting('price_plan_page') ? url('/'.getSlugFromReadingSetting('price_plan_page')) : url('/price-plan')}}" target="_self" class="dashboard_table__title__btn btn-bg-1 radius-5">{{__('view packages')}}</a>
+                                    <div class="alert alert-warning d-flex justify-content-between">{{__('you must have to subscribe any of our package in booking to start provide your services.')}}
+                                        <!-- <a href="{{getSlugFromReadingSetting('price_plan_page') ? url('/'.getSlugFromReadingSetting('price_plan_page')) : url('/price-plan')}}" target="_self" class="dashboard_table__title__btn btn-bg-1 radius-5">{{__('view packages')}}</a> -->
+                                        <a href="{{url('/price-plan')}}" target="_self" class="dashboard_table__title__btn btn-bg-1 radius-5">{{__('view packages')}}</a>
+
                                     </div>
                                     </div>
                                  @endif

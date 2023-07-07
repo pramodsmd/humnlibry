@@ -18,6 +18,8 @@ use Modules\Subscription\Entities\SubscriptionHistory;
 use Modules\Wallet\Entities\Wallet;
 use Str;
 use Xgenious\Paymentgateway\Facades\XgPaymentGateway;
+use Modules\Subscription\Entities\Subscription;
+
 
 class BuySubscriptionController extends Controller
 {
@@ -41,7 +43,8 @@ class BuySubscriptionController extends Controller
     }
 
     public function buy_subscription(Request $request)
-    {
+    {  
+          
 
         if(isset($request->subscription_id)){
             if($request->type=='monthly'){
@@ -70,6 +73,17 @@ class BuySubscriptionController extends Controller
             if($last_subscription_history){
                 $last_subscription_history = $last_subscription_history->id;
             }
+               
+            $subscriptions = Subscription::where('id',$request->subscription_id)->first();
+           
+            $unique_profile  = $subscriptions->unique_profile??'';
+            $profile_searchable =$subscriptions->profile_searchable??'';
+            $booking_availability = $subscriptions->booking_availability??'';
+            $booking_calendar =$subscriptions->booking_calendar??'';
+            $booking_counter= $subscriptions->booking_counter??'';
+            
+
+
             //seller complete payment later
             if($request->selected_payment_gateway == 'manual_payment'){
                 $payment_status='pending';
@@ -133,6 +147,11 @@ class BuySubscriptionController extends Controller
                         'seller_id' => Auth::guard('web')->user()->id,
                         'type' => $request->type,
                         'service' => $service,
+                        'unique_profile'=>$unique_profile??'',
+                        'profile_searchable'=>$profile_searchable??'',
+                        'booking_availability'=>$booking_availability??'',
+                        'booking_calendar'=>$booking_calendar??'',
+                        'booking_counter'=>$booking_counter??'',
                         'job' => $job,
                         'connect' => $connect,
                         'coupon_code' => $get_coupon_code->code ?? 'No Coupon',
@@ -152,6 +171,11 @@ class BuySubscriptionController extends Controller
                                 'subscription_id' => $request->subscription_id,
                                 'type' => $request->type,
                                 'initial_service' => $service,
+                                'unique_profile'=>$unique_profile,
+                                'profile_searchable'=>$profile_searchable,
+                                'booking_availability'=>$booking_availability,
+                                'booking_calendar'=>$booking_calendar,
+                                'booking_counter'=>$booking_counter,
                                 'initial_job' => $job,
                                 'initial_price' => $price,
                                 'total' => ($total->total+$price),
@@ -171,6 +195,11 @@ class BuySubscriptionController extends Controller
                             'connect' => 0,
                             'initial_price' => $price,
                             'total' => $price,
+                            'unique_profile'=>$unique_profile,
+                            'profile_searchable'=>$profile_searchable,
+                            'booking_availability'=>$booking_availability,
+                            'booking_calendar'=>$booking_calendar,
+                            'booking_counter'=>$booking_counter,
                             'initial_connect' =>$connect,
                             'expire_date' => $expire_date,
                             'seller_id' => Auth::guard('web')->user()->id,
@@ -204,6 +233,11 @@ class BuySubscriptionController extends Controller
                             'price' => $subscription_details->initial_price,
                             'initial_service' => $subscription_details->initial_service,
                             'initial_job' => $subscription_details->initial_job,
+                            'unique_profile'=>$subscription_details->unique_profile,
+                            'profile_searchable'=>$subscription_details->profile_searchable,
+                            'booking_availability'=>$subscription_details->booking_availability,
+                            'booking_calendar'=>$subscription_details->booking_calendar,
+                            'booking_counter'=>$subscription_details->booking_counter,
                             'status' => 1,
                         ]);
 

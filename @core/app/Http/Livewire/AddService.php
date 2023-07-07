@@ -150,7 +150,7 @@ class AddService extends Component
 
         $commissionGlobal = AdminCommission::first();
         if(moduleExists('Subscription') && $commissionGlobal->system_type == 'subscription' && empty(auth('web')->user()->subscribedSeller)){
-            session()->flash('message', __('you must have to subscribe any of our package in order to start selling your services.'));
+            session()->flash('message', __('you must have to subscribe any of our package in booking to start providing your services.'));
             return back();
         }
 
@@ -169,29 +169,35 @@ class AddService extends Component
 
             //commission type check
             $commission = AdminCommission::first();
-            if($commission->system_type == 'subscription'){              
-                if(subscriptionModuleExistsAndEnable('Subscription')){
+            if($commission->system_type == 'subscription'){ 
+             
+                // if(subscriptionModuleExistsAndEnable('subscription')){
+                    // dd($commission);
 
                     $seller_subscription = \Modules\Subscription\Entities\SellerSubscription::where('seller_id', Auth::guard('web')->user()->id)->first();
                     // Seller Service count
                     $seller_service_count = Service::where('seller_id', Auth::guard('web')->user()->id)->count();               
+                 // echo Carbon::now()->addDays(30);
+                  //die;
                     if(is_null($seller_subscription)){
                         session()->flash('message', __('you have to subscribe a package to create services'));
                         return redirect()->back();
                     }
 
                     if ($seller_subscription->type === 'monthly'){                      
-                        // check seller connect,service,expire date
-                        if ($seller_subscription->connect == 0){
-                            session()->flash('message', __('Your Subscription is expired'));
-                            return redirect()->back();
-                        }elseif ($seller_subscription->initial_service <= $seller_service_count){
+                        // // check seller connect,service,expire date
+                        // if ($seller_subscription->connect == 0){
+                        //     session()->flash('message', __('Your Subscription is expired'));
+                        //     return redirect()->back();
+                        // }
+                        if ($seller_subscription->initial_service <= $seller_service_count){
                            session()->flash('message', __('Your Subscription is expired'));
                             return redirect()->back();
                         }elseif ($seller_subscription->expire_date <= Carbon::now()){
                             session()->flash('message', __('Your Subscription is expired'));
                             return redirect()->back();
                         }
+
                     }elseif ($seller_subscription->type === 'yearly'){
                         // check seller connect,service,expire date
                          if ($seller_subscription->connect == 0){
@@ -206,7 +212,7 @@ class AddService extends Component
                          }
                      }
                     
-                }
+                // }
             }
 
            $this->validate();

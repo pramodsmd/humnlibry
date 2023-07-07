@@ -56,7 +56,7 @@
                             <thead>
                             <tr>
                                 <th> {{ __('Subscription Details') }} </th>
-                                <th> {{ __('Connect Details') }} </th>
+                                <!-- <th> {{ __('Connect Details') }} </th> -->
                                 <th> {{ __('Payment Gateway') }} </th>
                                 <th> {{ __('Payment Status') }} </th>
                                 <th> {{ __('Expire Date') }} </th>
@@ -69,15 +69,15 @@
                                         <div>
                                             <span> {{ __('Title:') }}   <strong class="text-secondary"> {{ optional($subscription->subscription)->title }} </strong> </span> <br>
                                             <span> {{ __('Type:') }}  <strong class="text-secondary">  {{ optional($subscription->subscription)->type }}  </strong></span> <br>
-                                            <span> {{ __('Connect:') }}   <strong class="text-secondary"> {{ optional($subscription->subscription)->connect }} </strong> </span> <br>
+                                            <!-- <span> {{ __('Connect:') }}   <strong class="text-secondary"> {{ optional($subscription->subscription)->connect }} </strong> </span> <br> -->
                                             <span> {{ __('Service:') }}  <strong class="text-secondary">  {{ optional($subscription->subscription)->service }}  </strong></span> <br>
-                                            <span> {{ __('Job:') }}  <strong class="text-secondary">  {{ optional($subscription->subscription)->job }}  </strong></span> <br>
+                                            <!-- <span> {{ __('Job:') }}  <strong class="text-secondary">  {{ optional($subscription->subscription)->job }}  </strong></span> <br> -->
                                             <span> {{ __('Price:') }} <strong class="text-secondary">  {{ float_amount_with_currency_symbol(optional($subscription->subscription)->price) }} </strong> </span>
                                         </div>
                                     </td>
 
 
-                                    <td>
+                                    <!-- <td>
                                         <div>
                                              <span class="mt-2">
                                                  @if($subscription->type == 'lifetime')
@@ -91,11 +91,15 @@
                                                  @endif
                                              </span>
                                         </div>
-                                    </td>
+                                    </td> -->
 
                                     <td>
                                         <div class="dashboard_table__main__paymentGateway">
-                                            {{ ucfirst($subscription->payment_gateway) }}
+                                        @if($subscription->payment_gateway=="stripe")
+                                        {{ ucfirst('Debit/Credit card') }}
+                                        @else
+                                        {{ ucfirst($subscription->payment_gateway) }}
+                                        @endif
                                         </div>
                                     </td>
 
@@ -139,9 +143,14 @@
                 </div>
                 <!--seller subscription basic info end-->
                 @else
-                    <div class="chat_wrapper__details__inner__chat__contents">
+                   <div class="row">
+                    <div class="chat_wrapper__details__inner__chat__contents col-sm-6">
                          <h2 class="chat_wrapper__details__inner__chat__contents__para">{{ __('No Subscription Found') }}</h2>
                     </div>
+                    <div class="col-sm-6">
+                            <a href="{{url('/price-plan')}}" target="_self" class="dashboard_table__title__btn btn-bg-1 radius-5" style="float:right">{{__('view packages')}}</a>
+                        </div>
+                    </div>  
                 @endif
 
                 <!--seller subscription history  start-->
@@ -174,13 +183,13 @@
                                                 {{float_amount_with_currency_symbol($data->price)}} <br>
                                             @endif
                                             {{ __('Type:') }} {{ucfirst($data->type)}} <br>
-                                            @if($data->type != 'lifetime')
+                                            <!-- @if($data->type != 'lifetime')
                                                 {{ __('Connect:') }}
                                                 @if($data->connect == 0)
                                                     {{$data->initial_connect}} <br>
                                                 @else
                                                     {{$data->connect}} <br>
-                                                @endif
+                                                @endif -->
                                                 {{ __('Expire Date:') }} {{date('d-m-Y', strtotime($data->expire_date))}}<br>
                                             @endif
                                         </div>
@@ -188,7 +197,11 @@
 
                                     <td>
                                         <div class="dashboard_table__main__priority">
-                                            {{ __('Payment Gateway:') }} {{ ucfirst($data->payment_gateway) }} <br>
+                                            {{ __('Payment Gateway:') }} @if($data->payment_gateway=="stripe")
+                                        {{ ucfirst('Debit/Credit card') }}
+                                        @else
+                                        {{ ucfirst($data->payment_gateway) }}
+                                        @endif <br>
                                             {{ __('Payment Status:') }}
 
                                             <a href="javascript:void(0)" class="priorityBtn @if($data->payment_status == 'complete') completed @else pending @endif">

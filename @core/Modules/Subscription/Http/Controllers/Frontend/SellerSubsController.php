@@ -17,12 +17,21 @@ use Modules\Wallet\Entities\Wallet;
 class SellerSubsController extends Controller
 {
     public function subscriptions()
-    {
+    {  
         $seller_id = Auth::guard('web')->user()->id;
         $subscription = SellerSubscription::where('seller_id', $seller_id)->first();
         $subscription_history = SubscriptionHistory::where('seller_id', $seller_id)->where('payment_status','complete')->latest()->paginate(10);
         return view('subscription::frontend.seller.subscriptions', compact('subscription', 'subscription_history'));
     }
+   
+    public function subscriptionsView()
+    {  
+        $seller_id = Auth::guard('web')->user()->id;
+        $subscription = SellerSubscription::where('seller_id', $seller_id)->first();
+        $subscription_history = SubscriptionHistory::where('seller_id', $seller_id)->where('payment_status','complete')->latest()->paginate(10);
+        return view('subscription::frontend.seller.subscriptions', compact('subscription', 'subscription_history'));
+    }
+
 
     public function sub_renew(Request $request)
     {

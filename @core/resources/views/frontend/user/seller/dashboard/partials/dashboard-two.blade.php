@@ -36,7 +36,7 @@
                     @if(empty(auth('web')->user()->subscribedSeller))
                         <div class="col-lg-12 mt-1">
                                 <div class="alert alert-warning d-flex justify-content-between">
-                                    <strong style="font-size: 16px">{{__('you must have to subscribe any of our package in order to start selling your services.')}}</strong>
+                                    <strong style="font-size: 16px">{{__('you must have to subscribe any of our package in booking to start providing your services.')}}</strong>
                                     <a href="{{getSlugFromReadingSetting('price_plan_page') ? url('/'.getSlugFromReadingSetting('price_plan_page')) : url('/price-plan')}}" target="_self" class="btn btn-secondary">{{__('view packages')}}</a>
                                 </div>
                         </div>
