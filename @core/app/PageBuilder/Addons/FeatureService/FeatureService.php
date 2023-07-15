@@ -123,9 +123,9 @@ class FeatureService extends \App\PageBuilder\PageBuilderBase
 
         $services = Service::select('id','title','image','description','price','slug','seller_id','service_city_id','is_service_online')
         ->where(['status'=>1,'is_service_on'=>1,'featured'=>1])
-        ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-            $q->whereHas('seller_subscription');
-        })
+        // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+        //     $q->whereHas('seller_subscription');
+        // })
         ->take($items)
         ->inRandomOrder()
         ->get();

@@ -351,9 +351,9 @@ class ServiceListOne extends PageBuilderBase
 
         $all_services = $service_quyery->where('status', 1)
             ->where('is_service_on', 1)
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            })
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // })
             ->OrderBy($order_by,$IDorDate)
             ->paginate($items);
 

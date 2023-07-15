@@ -91,9 +91,9 @@ class OnlineServiceTwo extends \App\PageBuilder\PageBuilderBase
 
         $services = Service::select('id','title','image','description','price','slug','seller_id','featured', 'service_city_id','is_service_online')
             ->where(['status'=>1,'is_service_on'=>1,'is_service_online'=>1])
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            })
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // })
             ->orderBy('view','DESC')
             ->take($items)
             ->inRandomOrder()
