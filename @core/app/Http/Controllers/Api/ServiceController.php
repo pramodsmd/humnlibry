@@ -255,10 +255,10 @@ class ServiceController extends Controller
         $all_services_query = Service::query()->with('seller_for_mobile','reviews_for_mobile','serviceCity')
             ->select('id','seller_id','title','price','image','is_service_online','service_city_id')
             ->where('status', 1)
-            ->where('is_service_on', 1)
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            });
+            ->where('is_service_on', 1);
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // });
             
         if(!empty(request()->get('state_id'))){
             $all_services_query->where('service_city_id',request()->get('state_id'));
@@ -292,10 +292,10 @@ class ServiceController extends Controller
             ->select('id','seller_id','title','price','image','is_service_online','service_city_id')
             ->where('status', 1)
             ->where('is_service_on', 1)
-            ->where('category_id', $category_id)
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            });
+            ->where('category_id', $category_id);
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // });
             
             if(!empty(request()->get('state_id'))){
                 $all_services_query->where('service_city_id',request()->get('state_id'));
@@ -328,9 +328,9 @@ class ServiceController extends Controller
             ->select('id','seller_id','title','price','image','is_service_online','service_city_id')
             ->where('status', 1)
             ->where('is_service_on', 1)
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            })
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // })
             ->where('category_id', $category_id)
             ->where('subcategory_id', $subcategory_id)
             ->OrderBy('id','desc')
