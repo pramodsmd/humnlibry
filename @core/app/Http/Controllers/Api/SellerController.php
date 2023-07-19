@@ -1150,9 +1150,9 @@ class SellerController extends Controller
             ->with('reviews_for_mobile')
             ->where('status','1')
             ->where('is_service_on','1')
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            })
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // })
             ->orderBy('id','Desc')
             ->paginate(20)
             ->through(function($item){
