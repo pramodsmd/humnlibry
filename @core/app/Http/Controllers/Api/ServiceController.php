@@ -51,10 +51,10 @@ class ServiceController extends Controller
             ->with('reviews_for_mobile')
             ->whereHas('reviews_for_mobile')
             ->where('status','1')
-            ->where('is_service_on','1')
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            });
+            ->where('is_service_on','1');
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // });
             
             
         if(!empty(request()->get('state_id'))){
@@ -102,11 +102,10 @@ class ServiceController extends Controller
         $latest_services_query = Service::query()->select('id','title','image','price','seller_id')
             ->with('reviews_for_mobile')
             ->where('status','1')
-            ->where('is_service_on','1')
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            })
-        ;
+            ->where('is_service_on','1');
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // });
             
         if(!empty(request()->get('state_id'))){
             $latest_services_query->where('service_city_id',request()->get('state_id'));
@@ -361,9 +360,9 @@ class ServiceController extends Controller
                 ->select('id','seller_id','title','price','image','is_service_online','service_city_id')
                 ->where('status', 1)
                 ->where('is_service_on', 1)
-                ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                    $q->whereHas('seller_subscription');
-                })
+                // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+                //     $q->whereHas('seller_subscription');
+                // })
                 ->where('category_id', $category_id)
                 ->where('subcategory_id', $subcategory_id);
 
@@ -404,10 +403,10 @@ class ServiceController extends Controller
     {
         $service_quyery = Service::query();
         $service_quyery->with('seller_for_mobile','reviews_for_mobile','serviceCity');
-        $service_quyery->select('id','seller_id','title','price','image','is_service_online','service_city_id')
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            });
+        $service_quyery->select('id','seller_id','title','price','image','is_service_online','service_city_id');
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // });
         if(!empty(request()->get('cat'))){
             $service_quyery->where('category_id',request()->get('cat'));
         }
@@ -466,9 +465,9 @@ class ServiceController extends Controller
             ->select('id','seller_id','title','price','tax','image','is_service_online','service_city_id')
             ->where('status', 1)
             ->where('is_service_on', 1)
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            })
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // })
             ->where('id', $id)
             ->first();
 
@@ -587,10 +586,10 @@ class ServiceController extends Controller
         $services = Service::query();
         $services->with('seller_for_mobile','reviews_for_mobile','serviceCity');
         $services->where('status',1)
-            ->where('is_service_on',1)
-            ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
-                $q->whereHas('seller_subscription');
-            });
+            ->where('is_service_on',1);
+            // ->when(subscriptionModuleExistsAndEnable('Subscription'),function($q){
+            //     $q->whereHas('seller_subscription');
+            // });
 
         if(!empty($request->search_text)){
             $services->Where('title', 'LIKE', '%' . $request->search_text . '%')
