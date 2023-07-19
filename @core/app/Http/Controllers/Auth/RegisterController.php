@@ -122,7 +122,7 @@ class RegisterController extends Controller
                         'phone' => 'required|unique:users|max:191',
                         'password' => 'required|max:191',
                         'service_city' => 'required',
-                        'service_area' => 'required',
+                        // 'service_area' => 'required',
                         'country' => 'required',
                     ]);
                 }
@@ -138,7 +138,7 @@ class RegisterController extends Controller
                 'phone' => $request->phone,
                 'password' => Hash::make($request->password),
                 'service_city' => $request->service_city,
-                'service_area' => $request->service_area,
+                // 'service_area' => $request->service_area,
                 'country_id' => $request->country,
                 'user_type' => $user_type,
                 'terms_conditions' =>1,
