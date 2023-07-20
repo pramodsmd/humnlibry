@@ -13,7 +13,7 @@ class BuyerChatController extends Controller
     public function liveChat()
     {
         $buyer_id = auth('sanctum')->id();
-        $seller_lists = LiveChatMessage::select('seller_id')
+        $seller_lists = LiveChatMessage::select('seller_id','message')
             ->with('sellerList')
             ->distinct('seller_id')
             ->where('seller_id','!=',NULL)
