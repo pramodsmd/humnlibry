@@ -166,7 +166,7 @@ class ServiceController extends Controller
         
         
          $seller = User::where('id',$service->seller_id)->first();
-         $order_message = __('Service status updated');
+         $order_message = __('book status updated');
                    // seller buyer notification
          $seller->notify(new OrderNotification(null,$service->id, $seller->id, null,$order_message));
          AdminNotification::create(['service_id' => $id,'type'=>'service_status']);
@@ -560,7 +560,7 @@ class ServiceController extends Controller
             }catch (\Throwable $th){
                 DB::rollBack();
             }
-            return redirect()->route('admin.all.services')->with(FlashMsg::item_new('Service Updated Success'));
+            return redirect()->route('admin.all.services')->with(FlashMsg::item_new('Book Updated Success'));
         }
 
         $service = Service::findOrFail($id);

@@ -138,7 +138,7 @@ class ServiceController extends Controller
         ]);
     }
 
-    // service details
+    // Book Details
     public function serviceDetails($id=null){
     
         $service_details =  Service::with('serviceFaq')->where('id',$id)->where('status',1)->where('is_service_on',1)->first();
@@ -249,7 +249,7 @@ class ServiceController extends Controller
         
     }
 
-    //all services
+    //All Books
     public function allServices(){
         $all_services_query = Service::query()->with('seller_for_mobile','reviews_for_mobile','serviceCity')
             ->select('id','seller_id','title','price','image','is_service_online','service_city_id')
@@ -831,7 +831,7 @@ class ServiceController extends Controller
         if ($request->has('paytm') && !empty($request->has('paytm'))){
             $user_info = Auth::guard('sanctum')->user();
             $title = Str::limit(strip_tags($service_details->title),20);
-            $description = sprintf(__('Order id #%1$d Email: %2$s, Name: %3$s'),$last_order_id,$user_info->email,$user_info->name);
+            $description = sprintf(__('Booking ID #%1$d Email: %2$s, Name: %3$s'),$last_order_id,$user_info->email,$user_info->name);
             $paytm_details = XgPaymentGateway::paytm()->charge_customer([
                 'amount' => $total,
                 'title' => $title,

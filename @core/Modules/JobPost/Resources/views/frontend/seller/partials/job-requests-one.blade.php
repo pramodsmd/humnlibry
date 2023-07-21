@@ -54,7 +54,7 @@
                                             <th> {{ __('Job Offer ID') }} </th>
                                             <th> {{ __('Job ID') }} </th>
                                             <th> {{ __('Job Title') }} </th>
-                                            <th> {{ __('Buyer Name') }} </th>
+                                            <th> {{ __('Reader Name') }} </th>
                                             <th> {{ __('Your Offer') }} </th>
                                             <th> {{ __('Buyer Offer') }} </th>
                                             <th> {{ __('Action') }} </th>
@@ -66,7 +66,7 @@
                                                 <td data-label="{{ __('Job Offer ID') }}"> {{ $job_req->id }} </td>
                                                 <td data-label="{{ __('Job ID') }}"> {{ optional($job_req->job)->id }} </td>
                                                 <td data-label="{{ __('Job Title') }}"> {{ Str::limit(optional($job_req->job)->title,50) }} </td>
-                                                <td data-label="{{ __('Buyer Name') }}">
+                                                <td data-label="{{ __('Reader Name') }}">
                                                     {{ optional(optional($job_req->job)->buyer)->name }}
                                                     @if(optional($job_req->jobRequestTicket)->is_hired == 1)
                                                         <span class="btn btn-info">{{ __('Hired') }}</span>
@@ -115,7 +115,7 @@
             "use strict";
 
             $(document).ready(function() {
-                //order complete status approve
+                //Booking Complete status approve
                 $(document).on('click','.swal_status_change',function(e){
                     e.preventDefault();
                     Swal.fire({

@@ -2454,7 +2454,7 @@ function static_text(){
         'lowest_price' => __('Lowest Price'),
         'highest_price' => __('Highest Price'),
     
-        'all_services_text' => __('All Services'),
+        'all_services_text' => __('All Books'),
         'service' => __('Service'),
         'start_at' => __('Starting at'),
         'become_a_seller' => __('Become A Seller'),

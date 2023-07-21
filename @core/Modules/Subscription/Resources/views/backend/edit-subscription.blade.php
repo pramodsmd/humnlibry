@@ -120,7 +120,7 @@
                                     <option value="inactive" {{$subscription->booking_counter =='inactive' ? 'selected' : '' }}>{{ __('Inactive') }}</option>
                                    </select>
                                     <span>{{ __('Booking Count Down/Timer : Show a running time e.g for 1 hour- 60min to 1 left min till popup Timeout and Service completed. Like taxi meter ( Assume someone provide Massage 
-                                    service for 1 hour so count down will be running for customer users and service provider')}}</span>
+                                    service for 1 hour so count down will be running for customer users and book provider')}}</span>
                                 </div>
 
                                 <!--<div class="form-group connect_show_hide">-->

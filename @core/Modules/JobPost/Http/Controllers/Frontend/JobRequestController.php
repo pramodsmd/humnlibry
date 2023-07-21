@@ -205,7 +205,7 @@ class JobRequestController extends Controller
                 $job_request_query->whereIn('job_post_id',  $job_post_id);
             }
 
-            // search by buyer name
+            // search by Reader Name
             if (!empty($request->buyer_name)){
                 $buyer_id = User::select('id', 'name')->where('name', 'LIKE', "%{$request->buyer_name}%")->pluck('id')->toArray();
                 $job_request_query->whereIn('buyer_id',  $buyer_id);
@@ -419,7 +419,7 @@ class JobRequestController extends Controller
         $last_order_id = $order_details->id;
         $job_post_title = optional($request_details->job)->title;
         $title = Str::limit($job_post_title,20);
-        $description = sprintf(__('Order id #%1$d Email: %2$s, Name: %3$s'),$last_order_id,$email,$name);
+        $description = sprintf(__('Booking ID #%1$d Email: %2$s, Name: %3$s'),$last_order_id,$email,$name);
 
         //Send order notification to seller
         $seller = User::where('id',$request_details->seller_id)->first();

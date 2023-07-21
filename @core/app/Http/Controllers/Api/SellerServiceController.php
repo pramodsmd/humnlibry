@@ -230,7 +230,7 @@ class SellerServiceController extends Controller
             ]);
 
             return response()->success([
-                'message'=> __('Service updated success'),
+                'message'=> __('Book Updated success'),
             ]);
         }
     }

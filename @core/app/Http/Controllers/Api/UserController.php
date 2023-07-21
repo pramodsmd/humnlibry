@@ -860,7 +860,7 @@ class UserController extends Controller
         ]);
     }
 
-    /* Extra Service list */
+    /* Extra Book List */
     public function extraServiceList($id)
     {
         $extra_service_list = ExtraService::where('order_id',$id)->get(['id','order_id','title','quantity','price','tax','sub_total','total','status']);
@@ -1007,11 +1007,11 @@ class UserController extends Controller
         if(!empty($find_order)){
             Order::where('id',$request->order_id)->update(['order_complete_request'=>2,'status'=>2]);
             return response()->success([
-                'msg'=>__('Order complete request successfully approved.'),
+                'msg'=>__('Booking Complete request successfully approved.'),
             ]);
         }else{
             return response()->error([
-                'msg'=>__('Order id does not exists.'),
+                'msg'=>__('Booking ID does not exists.'),
             ]);
         }
     }
@@ -1035,26 +1035,26 @@ class UserController extends Controller
 
         //Send decline mail to seller and admin
         try {
-            $message_body_admin = __('A buyer has been decline a request to complete an order. Order ID #'). $request->order_id.'</br>';
-            $message_body_seller = __('Your request to complete an order has been decline by the buyer. Order ID #'). $request->order_id.'</br>';
+            $message_body_admin = __('A buyer has been decline a request to complete an order. Booking ID #'). $request->order_id.'</br>';
+            $message_body_seller = __('Your request to complete an order has been decline by the reader. Booking ID #'). $request->order_id.'</br>';
             $message = get_static_option('buyer_to_admin_extra_service_message');
             $message = str_replace(["@order_id"],[$request->order_id],$message);
             Mail::to(get_static_option('site_global_email'))->send(new BasicMail([
-                'subject' =>get_static_option('buyer_order_decline_subject') ?? __('Order Complete Decline'),
+                'subject' =>get_static_option('buyer_order_decline_subject') ?? __('Booking Complete Decline'),
                 'message' => $message
             ]));
 
             $message = get_static_option('buyer_order_decline_message');
             $message = str_replace(["@order_id"],[$request->order_id],$message);
             Mail::to($seller_email->email)->send(new BasicMail([
-                'subject' =>get_static_option('buyer_order_decline_subject') ?? __('Order Complete Decline'),
+                'subject' =>get_static_option('buyer_order_decline_subject') ?? __('Booking Complete Decline'),
                 'message' => $message
             ]));
         } catch (\Exception $e) {
             //
         }
         return response()->error([
-            'msg'=>__('Order complete request decline successfully'),
+            'msg'=>__('Booking Complete request decline successfully'),
         ]);
     }
     
@@ -1076,7 +1076,7 @@ class UserController extends Controller
             ]);
         }else{
             return response()->error([
-                'msg'=>__('Order id does not exists.'),
+                'msg'=>__('Booking ID does not exists.'),
             ]);
         }
     }

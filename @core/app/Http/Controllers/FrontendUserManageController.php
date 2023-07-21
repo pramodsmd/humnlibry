@@ -72,7 +72,7 @@ class FrontendUserManageController extends Controller
                     return $row->id;
                 })
                 ->addColumn('name',function ($row){
-                        $user_type = $row->user_type==0 ? __("Seller") : __("Buyer");
+                        $user_type = $row->user_type==0 ? __("Book") : __("Reader");
                         return $row->name." "."<".$row->username.">"."(".$user_type.")";
                 })
                 ->addColumn('user_status',function ($row) {
@@ -426,7 +426,7 @@ class FrontendUserManageController extends Controller
                 'phone' => $request->edit_phone,
                 'country_id' => $request->edit_country,
                 'service_city' => $request->edit_city,
-                'service_area' => $request->edit_area,
+                // 'service_area' => $request->edit_area,
                 'address' => $request->edit_address,
                 'image' => $request->edit_image ?? $old_image->image,
             ]);

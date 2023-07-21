@@ -31,7 +31,7 @@ class JobPostServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the service provider.
+     * Register the book provider.
      *
      * @return void
      */

@@ -69,7 +69,7 @@ class BuyerController extends Controller
             $orders_query = Order::with('online_order_ticket')->where('buyer_id', Auth::guard('web')->user()->id)->where('job_post_id', NULL);
 
 
-            // search by order ID
+            // search by Booking ID
             if (!empty($request->order_id)){
                 $orders_query->where('id', $request->order_id);
             }
@@ -83,7 +83,7 @@ class BuyerController extends Controller
             if (!empty($request->payment_status)){
                 $orders_query->where('payment_status', $request->payment_status);
             }
-            // search by order status
+            // search by Booking Status
             if (!empty($request->order_status)){
                 if ($request->order_status == 'pending'){
                     $orders_query->where('status', 0);
@@ -98,7 +98,7 @@ class BuyerController extends Controller
                 $orders_query->where('payment_status', $request->total);
             }
 
-            // search by service title
+            // search by Book Title
             if (!empty($request->service_title)){
                 $service_id = Service::select('id', 'title')->where('title',  'LIKE', "%{$request->service_title}%")->pluck('id')->toArray();
                 $orders_query->whereIn('service_id', $service_id);
@@ -133,7 +133,7 @@ class BuyerController extends Controller
                     ->where('buyer_id', Auth::guard('web')->user()->id)
                     ->where('job_post_id', '!=', NULL);
 
-            // search by order ID
+            // search by Booking ID
             if (!empty($request->order_id)){
                 $orders_query->where('id', $request->order_id);
             }
@@ -147,7 +147,7 @@ class BuyerController extends Controller
             if (!empty($request->payment_status)){
                 $orders_query->where('payment_status', $request->payment_status);
             }
-            // search by order status
+            // search by Booking Status
             if (!empty($request->order_status)){
                 if ($request->order_status == 'pending'){
                     $orders_query->where('status', 0);
@@ -522,7 +522,7 @@ class BuyerController extends Controller
                 'description' => 'required|max:150',
             ]);
 
-            //buyer order status check
+            //buyer Booking Status check
             $buyer_id =  Auth::guard('web')->user()->id;
             $all_orders = Order::where('buyer_id', $buyer_id)->where('status', 1)->count();
             if ($all_orders >1){
@@ -563,7 +563,7 @@ class BuyerController extends Controller
 
             $auth_buyer_id =  Auth::guard('web')->user()->id;
 
-            //first seller order status check
+            //first seller Booking Status check
             $all_orders = Order::where('buyer_id', $auth_buyer_id)->where('status', 1)->count();
             if ($all_orders >1){
                 toastr_error(__('Your have active orders. Please complete them before trying to delete your account.'));

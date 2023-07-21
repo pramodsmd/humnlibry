@@ -659,11 +659,11 @@ class SellerController extends Controller
             'price' => 'required',
         ]);
 
-        //todo: get order details from database
+        //todo: get Booking Details from database
         $orderDetails = Order::where('seller_id',$user_id)->where('id',$request->order_id)->first();
-        //todo: check order payment status paid or completed
+        //todo: check booking payment status paid or completed
         if ($orderDetails->payment_status === 'complete'){
-            //todo: if order status is completed then save data in new database table , update order table total price and admin commission etc
+            //todo: if Booking Status is completed then save data in new database table , update order table total price and admin commission etc
             $commission_charge = $orderDetails->commission_charge;
             $commission_type = $orderDetails->commission_type;
 
@@ -811,8 +811,8 @@ class SellerController extends Controller
 
         try {
             Mail::to(get_static_option('site_global_email'))->send(new BasicMail([
-                'subject' => __('aA order declined by the seller order ID').' '.$request->order_id,
-                'message' => sprintf(__('an order decliined by seller ID: %1$s, a reported created for refund buyer money for order ID: $2$s'),$request->report_id,$request->order_id),
+                'subject' => __('aA order declined by the seller Booking ID').' '.$request->order_id,
+                'message' => sprintf(__('an order decliined by seller ID: %1$s, a reported created for refund buyer money for Booking ID: $2$s'),$request->report_id,$request->order_id),
             ]));
         } catch (\Exception $e) {
             //handle exception
@@ -835,7 +835,7 @@ class SellerController extends Controller
         ]);
     }
 
-    /* Extra Service list */
+    /* Extra Book List */
     public function extraServiceList($id)
     {
         $extra_service_list = ExtraService::where('order_id',$id)->get(['id','order_id','title','quantity','price','tax','sub_total','total']);
@@ -849,7 +849,7 @@ class SellerController extends Controller
     {
         if($request->status == '' || $request->order_id == ''){
             return response()->error([
-                'msg' => __('Please select both status and order id first.'),
+                'msg' => __('Please select both status and Booking ID first.'),
             ]);
         }
         $payment_status = Order::select('id','payment_status','status','email','name')->where('id',$request->order_id)->first();
@@ -878,8 +878,8 @@ class SellerController extends Controller
                     ]);
                     //Send email after change status
                     try {
-                        $message_body_buyer =__('Hello, ').$payment_status->name. __('A new request is created for complete an order.').'</br>' . ' <span class="verify-code">'.__('Order ID is: ') . $payment_status->id. '</span>';
-                        $message_body_admin =__('Hello Admin A new request is created for complete an order.').'</br>' . ' <span class="verify-code">'.__('Order ID is:') . $payment_status->id. '</span>';
+                        $message_body_buyer =__('Hello, ').$payment_status->name. __('A new request is created for complete an order.').'</br>' . ' <span class="verify-code">'.__('Booking ID is: ') . $payment_status->id. '</span>';
+                        $message_body_admin =__('Hello Admin A new request is created for complete an order.').'</br>' . ' <span class="verify-code">'.__('Booking ID is:') . $payment_status->id. '</span>';
                         Mail::to($payment_status->email)->send(new BasicMail([
                             'subject' => __('New Request For Complete an Order'),
                             'message' => $message_body_buyer
@@ -898,12 +898,12 @@ class SellerController extends Controller
 //                Order::where('id',$request->order_id)->update(['status'=>$request->status]);
             }else{
                 return response()->error([
-                    'msg' => __('You can not change order status due to payment status pending.'),
+                    'msg' => __('You can not change Booking Status due to payment status pending.'),
                 ]);
             }
         }else{
             return response()->error([
-                'msg' => __('You can not change order status because this order already completed.'),
+                'msg' => __('You can not change Booking Status because this order already completed.'),
             ]);
         }
     }
@@ -926,7 +926,7 @@ class SellerController extends Controller
             ]);
         }else{
             return response()->error([
-                'msg'=>__('Order id does not exists.'),
+                'msg'=>__('Booking ID does not exists.'),
             ]);
         }
     }
@@ -960,7 +960,7 @@ class SellerController extends Controller
         $user_info = auth('sanctum')->user();
             $user_type =  $user_info->user_type ===  1 ? 'seller_' : '';
             
-        return response(['msg' => __("order status changed to cancel")],500);
+        return response(['msg' => __("Booking Status changed to cancel")],500);
     }
     
     public function availableDaysList(){

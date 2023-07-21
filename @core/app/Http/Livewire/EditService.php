@@ -207,7 +207,7 @@ class EditService extends Component
     }
 
 
-    // todo: mount is service id wise data show
+    // todo: mount is Book ID wise data show
     public function mount(){
         $id = $this->edit_service_id;
         $this->services  = Service::with('subcategory', 'childcategory')->findOrFail($id);
@@ -400,8 +400,8 @@ class EditService extends Component
         
          if(!empty($id)){
                     SupportTicket::create([
-                        'title' => 'Service Updated',
-                        'subject' => 'Service Updated By '.Auth::guard('web')->user()->name,
+                        'title' => 'Book Updated',
+                        'subject' => 'Book Updated By '.Auth::guard('web')->user()->name,
                         'status' => 'open',
                         'priority' => 'high',
                         'seller_id' => Auth::guard('web')->user()->id,
@@ -527,7 +527,7 @@ class EditService extends Component
         }
         OnlineServiceFaq::insert($all_faq_service);
 
-        $this->dispatchBrowserEvent('alert', toastr_success(__('Service updated Success---')));
+        $this->dispatchBrowserEvent('alert', toastr_success(__('Book Updated Success---')));
         return redirect()->route('seller.services');
 
     }

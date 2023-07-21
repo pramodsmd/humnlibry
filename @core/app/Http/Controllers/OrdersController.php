@@ -87,13 +87,13 @@ class OrdersController extends Controller
                     $action = '';
                     $admin = auth()->guard('admin')->user();
                     if($row->status == 0){
-                       //if order status pending admin change any order status
+                       //if Booking Status pending admin change any Booking Status
                         if ($admin->can('pending-order-cancel')){
                             $action .= General::pendingOrderCancel($row->id,route('admin.cancel.pending.order',$row->id),$row->status);
                             return $action;
                         }
                     }elseif ($row->status == 1){
-                        //if order status active admin change any order status
+                        //if Booking Status active admin change any Booking Status
                         if ($admin->can('pending-order-cancel')){
                             $action .= General::pendingOrderCancel($row->id,route('admin.cancel.pending.order',$row->id),$row->status);
                             return $action;
@@ -170,8 +170,8 @@ class OrdersController extends Controller
         Order::where('id',$request->id)->update(['status'=> $request->status_id]);
 
         try {
-            $order_status_change_title = __('Order Status Changed.') . $order_status->id;
-            $message_status = __('Order Status Changed.'). ' ' . __('Order ID:') .$order_status->id;
+            $order_status_change_title = __('Booking Status Changed.') . $order_status->id;
+            $message_status = __('Booking Status Changed.'). ' ' . __('Booking ID:') .$order_status->id;
             $message = str_replace(["@name","@old_status","@new_status","@order_id"],[$order_status->name,$old_status,$new_status,$order_status->id],$message_status);
             Mail::to($order_status->email)->send(new BasicMail([
                 'subject' => $order_status_change_title,
@@ -208,12 +208,12 @@ class OrdersController extends Controller
         return redirect()->back()->with(FlashMsg::item_new('Cancel Order Delete Success'));
     }
 
-    //order complete request
+    //Booking Complete request
     public function orderCompleteRequest(Request $request, $id=null)
     {
         if($request->isMethod('post')){
             Order::where('id',$id)->update(['order_complete_request'=>2,'status'=>2]);
-            return redirect()->back()->with(FlashMsg::item_new('Order Status Change to Complete'));
+            return redirect()->back()->with(FlashMsg::item_new('Booking Status Change to Complete'));
         }
         $orders = Order::select('id','total','updated_at','seller_id','buyer_id')->with('seller','buyer')
             ->where('order_complete_request',1)

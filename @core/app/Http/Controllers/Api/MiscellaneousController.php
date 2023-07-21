@@ -86,7 +86,7 @@ class MiscellaneousController extends Controller
        if (Hash::check($request->password, $userDetails->password)) {
            
            $auth_seller_id = $userDetails->id;
-           //first seller order status check
+           //first seller Booking Status check
            $all_orders = Order::where('seller_id', $auth_seller_id)->where('status', 1)->count();
            
                if ($all_orders > 1) {

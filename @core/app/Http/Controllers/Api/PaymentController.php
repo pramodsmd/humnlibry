@@ -59,14 +59,14 @@ class PaymentController extends Controller
     public function mollieChargeCustomer(Request $request){
         if(!$request->has('order_id')){
             return response()->error([
-                'message' => __('provider order id')
+                'message' => __('provider Booking ID')
             ]);
         }
         $userInfo = auth('sanctum')->user();
         $last_order_id = $request->order_id;
         $get_service_id_from_last_order = Order::select('service_id','id','total')->where('id',$last_order_id)->first();
         $title = Str::limit(strip_tags(optional($get_service_id_from_last_order->service)->title),20);
-        $description = sprintf(__('Order id #%1$d Email: %2$s, Name: %3$s'),$last_order_id,$userInfo->email,$userInfo->name);
+        $description = sprintf(__('Booking ID #%1$d Email: %2$s, Name: %3$s'),$last_order_id,$userInfo->email,$userInfo->name);
         
          $redirect_url = XgPaymentGateway::mollie()->charge_customer([
             'amount' => $get_service_id_from_last_order->total, 

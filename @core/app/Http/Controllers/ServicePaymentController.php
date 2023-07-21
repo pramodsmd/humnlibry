@@ -621,7 +621,7 @@ class ServicePaymentController extends Controller
                 "interests" => ["debug-seller".$orderInfo->seller_id, 'message'],
                 "fcm" =>[
                     "notification" => [
-                        "title" => "You have received a new order id #".$orderInfo->id,
+                        "title" => "You have received a new Booking ID #".$orderInfo->id,
                         "body" => ""
                     ]
                 ]

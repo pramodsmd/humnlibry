@@ -222,7 +222,7 @@ return <<<HTML
       </div>
       <div class="modal-body">
       
-            <p>Humn Libry provides advertising space for sexuality categories that may come from our service provider and for adults seeking adult entertainment services.
+            <p>Humn Libry provides advertising space for sexuality categories that may come from our book provider and for adults seeking adult entertainment services.
             Humn Libry is not an escort agency and does not play any part in the booking of any services.</p>
             
            <h6> To access this category, you agree:</6>

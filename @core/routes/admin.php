@@ -270,7 +270,7 @@ Route::group(['prefix'=>'services'],function(){
     Route::post('/order-create-settings-update', 'ServiceController@order_create_settings_update')->name('admin.order.create.settings.update');
     Route::get('/login-register-settings', 'ServiceController@login_register_settings')->name('admin.service.login.register.settings');
     Route::post('/login-register-settings-update', 'ServiceController@login_register_settings_update')->name('admin.login.register.settings.update');
-    // service status settings
+    // book status settings
     Route::post('/service-create-status-settings-update', 'ServiceController@service_create_status_settings_update')->name('admin.service.create.status.settings.update');
     Route::post('/service-edit-status-settings-update', 'ServiceController@service_edit_status_settings_update')->name('admin.service.edit.status.settings.update');
 

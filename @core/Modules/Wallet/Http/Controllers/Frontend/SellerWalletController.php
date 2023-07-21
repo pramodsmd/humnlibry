@@ -152,7 +152,7 @@ class SellerWalletController extends Controller
 
         $last_deposit_id = $deposit->id;
         $title = __('Deposit To Wallet');
-        $description = sprintf(__('Order id #%1$d Email: %2$s, Name: %3$s'),$last_deposit_id,$email,$name);
+        $description = sprintf(__('Booking ID #%1$d Email: %2$s, Name: %3$s'),$last_deposit_id,$email,$name);
 
         // variable for all payment gateway
         $global_currency = get_static_option('site_global_currency');

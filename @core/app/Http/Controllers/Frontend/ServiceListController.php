@@ -331,7 +331,7 @@ class ServiceListController extends Controller
 
 
         if (empty($request->seller_id)){
-            \Toastr::error(__('Service provider Id missing, please try another  service provider services'));
+            \Toastr::error(__('book provider Id missing, please try another  book provider services'));
             return back();
         }
         if ($request->seller_id == Auth::guard('web')->id()){
@@ -1465,7 +1465,7 @@ class ServiceListController extends Controller
         ]);
     }
 
-    //seller all services
+    //seller All Books
     public function sellerAllServices($seller_id = null)
     {
         $all_services = Service::with('reviews')
@@ -1621,7 +1621,7 @@ class ServiceListController extends Controller
         ]);
     }
 
-    //search by category from all services
+    //search by category from All Books
     public function allSearchByCategory(Request $request)
     {
         $services = Service::where('category_id', $request->category_id)->where('status', 1)->where('is_service_on', 1)
@@ -1637,7 +1637,7 @@ class ServiceListController extends Controller
         ]);
     }
 
-    //search by subcategory from all services
+    //search by subcategory from All Books
     public function allSearchBySubcategory(Request $request)
     {
         $services = Service::where('subcategory_id', $request->subcategory_id)->where('status', 1)->where('is_service_on', 1)
@@ -1653,7 +1653,7 @@ class ServiceListController extends Controller
         ]);
     }
 
-    //search by rating from all services
+    //search by rating from All Books
     public function allSearchByRating(Request $request)
     {
         $this->validate($request, ['rating' => 'numeric|min:1|max:5']);
@@ -1677,7 +1677,7 @@ class ServiceListController extends Controller
         ]);
     }
 
-    //search by sorting from all services
+    //search by sorting from All Books
     public function allSearchBySorting(Request $request)
     {
 

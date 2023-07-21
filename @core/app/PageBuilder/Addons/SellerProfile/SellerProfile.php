@@ -123,7 +123,7 @@ class SellerProfile extends \App\PageBuilder\PageBuilderBase
             $verify_text = __('This seller is verified by the site admin according his national id card.');
             $from = __('From');
             $since = __('Seller Since');
-            $order_completed_text = __('Order Completed');
+            $order_completed_text = __('Booking Completed');
             $seller_rating_text = __('Seller Rating');
             $profile_page = route('about.seller.profile',$seller_username);
             $seller_verify = '';

@@ -735,6 +735,6 @@ HTML;
 
     public function addon_title()
     {
-        return __('Service List: 1');
+        return __('Book List: 1');
     }
 }

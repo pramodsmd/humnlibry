@@ -226,7 +226,7 @@
                             mode: "range",
                         });
 
-                        //order complete status approve
+                        //Booking Complete status approve
                         $(document).on('click','.swal_status_change',function(e){
                             e.preventDefault();
                             Swal.fire({

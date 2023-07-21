@@ -259,9 +259,9 @@ class SellerController extends Controller
                 'description' => 'required|max:150',
             ]);
 
-            //first seller order status check
+            //first seller Booking Status check
             $auth_seller_id = Auth::guard('web')->user()->id;
-            //first seller order status check
+            //first seller Booking Status check
             $all_orders = Order::where('seller_id', $auth_seller_id)->where('status', 1)->count();
             if ($all_orders > 1) {
                 toastr_error(__('Your have active bookings. Please complete them before trying to delete your account.'));
@@ -290,7 +290,7 @@ class SellerController extends Controller
                 'description' => 'required|max:150',
             ]);
             $auth_seller_id = Auth::guard('web')->user()->id;
-            //first seller order status check
+            //first seller Booking Status check
             $all_orders = Order::where('seller_id', $auth_seller_id)->where('status', 1)->count();
             if ($all_orders > 1) {
                 toastr_error(__('Your have active orders. Please complete them before trying to delete your account.'));
@@ -442,7 +442,7 @@ class SellerController extends Controller
 
             $services_query = Service::with('reviews', 'pendingOrder', 'completeOrder', 'cancelOrder')->where('seller_id', Auth::user()->id);
 
-            // search by service ID
+            // search by Book ID
             if (!empty($request->service_id)){
                 $services_query->where('id', $request->service_id);
             }
@@ -453,7 +453,7 @@ class SellerController extends Controller
                 $services_query->whereBetween('created_at', [$start_date,$end_date]);
             }
 
-            // search by service status
+            // search by book status
             if (!empty($request->service_status)){
                 if ($request->service_status == 'pending'){
                     $services_query->where('status', 0);
@@ -477,7 +477,7 @@ class SellerController extends Controller
                 $services_query->whereIn('id', $service_id);
             }
 
-            // search by service title
+            // search by Book Title
             if (!empty($request->service_title)){
                 $service_id = Service::select('id', 'title')->where('title',  'LIKE', "%{$request->service_title}%")->pluck('id')->toArray();
                 $services_query->whereIn('id', $service_id);
@@ -1057,7 +1057,7 @@ class SellerController extends Controller
                 'service_description' => $request->description,
             ]);
 
-            toastr_success(__('Service updated success'));
+            toastr_success(__('Book Updated success'));
             return redirect()->route('seller.services');
         }
 
@@ -1643,7 +1643,7 @@ class SellerController extends Controller
         if(!empty($request->order_id || $request->order_date|| $request->payment_status || $request->order_status || $request->total || $request->seller_name || $request->service_title)){
 
             $orders_query = Order::with('online_order_ticket')->where('seller_id', Auth::guard('web')->user()->id)->where('job_post_id', NULL)->latest();
-            // search by order ID
+            // search by Booking ID
             if (!empty($request->order_id)){
                 $orders_query->where('id', $request->order_id);
             }
@@ -1658,7 +1658,7 @@ class SellerController extends Controller
                 $orders_query->where('payment_status', $request->payment_status);
             }
 
-            // search by order status
+            // search by Booking Status
             if (!empty($request->order_status)){
                 if ($request->order_status == 'pending'){
                     $orders_query->where('status', 0);
@@ -1672,13 +1672,13 @@ class SellerController extends Controller
                 $orders_query->where('payment_status', $request->total);
             }
 
-            // search by service title
+            // search by Book Title
             if (!empty($request->service_title)){
                 $service_id = Service::select('id', 'title')->where('title',  'LIKE', "%{$request->service_title}%")->pluck('id')->toArray();
                 $orders_query->whereIn('service_id', $service_id);
             }
 
-            // search by buyer name
+            // search by Reader Name
             if (!empty($request->buyer_name)){
                 $buyer_id = User::select('id', 'name')->where('name',  'LIKE', "%{$request->buyer_name}%")->pluck('id')->toArray();
                 $orders_query->whereIn('buyer_id', $buyer_id);
@@ -1710,7 +1710,7 @@ class SellerController extends Controller
                 ->where('seller_id', Auth::guard('web')->user()->id)
                 ->where('job_post_id', '!=', NULL);
 
-            // search by order ID
+            // search by Booking ID
             if (!empty($request->order_id)){
                 $orders_query->where('id', $request->order_id);
             }
@@ -1725,7 +1725,7 @@ class SellerController extends Controller
                 $orders_query->where('payment_status', $request->payment_status);
             }
 
-            // search by order status
+            // search by Booking Status
             if (!empty($request->order_status)){
                 if ($request->order_status == 'pending'){
                     $orders_query->where('status', 0);
@@ -1966,11 +1966,11 @@ class SellerController extends Controller
                 
             }else{
 
-                toastr_error(__('You can not change order status due to payment status pending'));
+                toastr_error(__('You can not change Booking Status due to payment status pending'));
                 return redirect()->back();
             }
         }else{
-            toastr_error(__('You can not change order status because this order already completed.'));
+            toastr_error(__('You can not change Booking Status because this order already completed.'));
             return redirect()->back();
         }
 
@@ -2614,11 +2614,11 @@ class SellerController extends Controller
             'price' => 'required',
         ]);
 
-        //todo: get order details from database
+        //todo: get Booking Details from database
         $orderDetails = Order::find($request->order_id);
-        //todo: check order payment status paid or completed
+        //todo: check booking payment status paid or completed
         if ($orderDetails->payment_status === 'complete'){
-            //todo: if order status is completed then save data in new database table , update order table total price and admin commission etc
+            //todo: if Booking Status is completed then save data in new database table , update order table total price and admin commission etc
             $commission_charge = $orderDetails->commission_charge;
             $commission_type = $orderDetails->commission_type;
 
@@ -2732,7 +2732,7 @@ class SellerController extends Controller
                     //send mail to buyer
                     $message = '<p>';
                     $message .= __('Hello').' '.$buyer_details->name.','."<br>";
-                    $message .= __('Service provider added extra service in your booking #').$orderDetails->id;
+                    $message .= __('book provider added extra service in your booking #').$orderDetails->id;
                     $message .= '</p>';
                     Mail::to($buyer_details->email)->send(new BasicMail([
                         'subject' => __('Extra service added in your booking #').$orderDetails->id,

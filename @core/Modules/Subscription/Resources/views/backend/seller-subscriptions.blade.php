@@ -142,10 +142,10 @@
 
                         <div class="single-dashboard-input">
                             <div class="single-info-input margin-top-30">
-                                <label for="priority" class="info-title"> {{__('Select Seller')}} </label>
+                                <label for="priority" class="info-title"> {{__('Select Book Provider')}} </label>
                                 <br><small class="text-info">{{__('seller list who has no subscription')}}</small>
                                 <select name="seller_id" class="form-control">
-                                    <option value="">{{__('Select Seller')}}</option>
+                                    <option value="">{{__('Select Book Provider')}}</option>
                                     @if($sellers)
                                         @foreach($sellers as $seller)
                                             <option value="{{ $seller->id }}">{{ $seller->name }}</option>
