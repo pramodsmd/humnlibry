@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Service Country')}}
+    {{__('Book country')}}
 @endsection
 
 @section('style')
@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('Service Country')}}  </h4>
+                                <h4 class="header-title">{{__('')}}  </h4>
                                 @can('country-delete')
                                   <x-bulk-action/>
                                 @endcan
@@ -104,8 +104,8 @@
                         @csrf
                         <input type="hidden" name="up_id" id="up_id">
                         <div class="form-group">
-                            <label for="up_country">{{__('Service Country')}}</label>
-                            <input type="text" class="form-control" name="up_country" id="up_country" placeholder="{{__('Service Country')}}">
+                            <label for="up_country">{{__('')}}</label>
+                            <input type="text" class="form-control" name="up_country" id="up_country" placeholder="{{__('')}}">
                         </div>
                     </div>
                     

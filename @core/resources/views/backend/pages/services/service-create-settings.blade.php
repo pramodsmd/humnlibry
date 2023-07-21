@@ -1,7 +1,7 @@
 @extends('backend.admin-master')
 
 @section('site-title')
-    {{__('Service Create Settings')}}
+    {{__('Book Create Settings')}}
 @endsection
 @section('content')
     <div class="col-lg-6 col-ml-12 padding-bottom-30">
@@ -16,14 +16,14 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('Service Create Settings')}} </h4>
+                                <h4 class="header-title">{{__('book Create Settings')}} </h4>
                             </div>
                         </div>
                         <form action="{{route('admin.service.create.settings.update')}}" method="post">
                             @csrf
                             <div class="tab-content margin-top-40">
                                 <div class="form-group">
-                                    <label for="service_city">{{__('Who Will Create Service?')}}</label>
+                                    <label for="service_city">{{__('Who Will Create Book?')}}</label>
                                     <select type="text" class="form-control" name="service_create_settings" id="service_create_settings" placeholder="{{__('Service City')}}">
                                         <option value="">{{ __('Select') }}</option>
                                         <option value="all_seller" {{ get_static_option('service_create_settings')=='all_seller' ? 'selected' : '' }} >{{ __('All Books') }}</option>
@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('Service Create Settings')}} </h4>
+                                <h4 class="header-title">{{__('Book Create Settings')}} </h4>
                                 <p class="mb-3 text-info">{{ __('You can set the service provider create service status auto Approved/Pending from here.') }}</p>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Service Reviews')}}
+    {{__('Book Reviews')}}
 @endsection
 
 @section('style')
@@ -20,15 +20,15 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('Service Reviews')}}  </h4>
+                                <h4 class="header-title">{{__('Book Reviews')}}  </h4>
                             </div>
                         </div>
                         <div class="table-wrap table-responsive">
                             <table class="table table-default">
                                 <thead>
                                 <th>{{__('Order ID')}}</th>
-                                <th>{{__('Buyer Name')}}</th>
-                                <th>{{__('Seller Name')}}</th>
+                                <th>{{__('Reader Name')}}</th>
+                                <th>{{__('Book Name')}}</th>
                                 <th>{{__('Review Rating')}}</th>
                                 <th>{{__('Review Message')}}</th>
                                 <th>{{__('Action')}}</th>

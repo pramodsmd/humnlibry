@@ -162,7 +162,7 @@
                         </div>
                         <div class="contents">
                             <h2 class="order-titles">{{ $total_seller }} </h2>
-                            <span class="order-para"> {{ __('Total Books') }} </span>
+                            <span class="order-para"> {{ __(' Total Book Providers') }} </span>
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,7 @@
                         </div>
                         <div class="contents">
                             <h2 class="order-titles"> {{ $pending_service }} </h2>
-                            <span class="order-para">{{ __('Pending Service')}} </span>
+                            <span class="order-para">{{ __('Pending Book')}} </span>
                         </div>
                     </div>
                 </div>
@@ -281,7 +281,7 @@
 
         <div class="row mt-5">
             <div class="col-md-6">
-                <h4 class="mb-3 earning-title">{{ __('Most Viewed Services') }}</h4>
+                <h4 class="mb-3 earning-title">{{ __('Most Viewed Books') }}</h4>
                 <div class="table-wrap table-responsive">
                     <table class="table table-bordered">
                         <thead>
@@ -310,7 +310,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h4 class="mb-3 earning-title">{{ __('Most Booked Services') }}</h4>
+                <h4 class="mb-3 earning-title">{{ __('Most Booked Books') }}</h4>
                 <div class="table-wrap table-responsive">
                     <table class="table table-bordered">
                         <thead>

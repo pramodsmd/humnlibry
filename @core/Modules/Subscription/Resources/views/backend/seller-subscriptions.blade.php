@@ -65,7 +65,7 @@
                                             {{ __('Type:') }} {{ucfirst($data->type)}} <br>
                                             {{ __('Available Connect: ') }}  {{$data->connect}} <br>
                                             {{ __('Service: ') }}  {{$data->initial_service}} <br>
-                                            {{ __('Job: ') }}  {{$data->initial_job}} <br>
+                                            <!-- {{ __('Job: ') }}  {{$data->initial_job}} <br> -->
                                             @if($data->payment_status == 'pending' || $data->payment_status == '')
                                             {{ __('Pending Connect: ') }}
                                             {{$data->initial_connect}} <br>

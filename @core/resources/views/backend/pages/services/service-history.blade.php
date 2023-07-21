@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Edit Service History')}}
+    {{__('Edit Book History')}}
 @endsection
 
 @section('style')

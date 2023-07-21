@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('All Services')}}
+    {{__('All Books')}}
 @endsection
 @section('style')
 <x-datatable.css/>
@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('All Services')}}  </h4>
+                                <h4 class="header-title">{{__('All Books')}}  </h4>
                                 @can('service-delete')
                                   <x-bulk-action/>
                                 @endcan

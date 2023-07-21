@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Service Details')}}
+    {{__('Book Details')}}
 @endsection
 @section('style')
     <style>
@@ -30,7 +30,7 @@
                         <div class="card-body">
 
                             <div class="border-bottom mb-3">
-                                <h5>{{ __('Service Details') }}</h5>
+                                <h5>{{ __('Book Details') }}</h5>
                             </div>
                             <div class="single-checbox">
                                 <div class="checkbox-inlines">
@@ -73,7 +73,7 @@
                         <div class="card-body">
 
                             <div class="border-bottom mb-3">
-                                <h5>{{ __('Service Image') }}</h5>
+                                <h5>{{ __('Book Image') }}</h5>
                             </div>
                             <div class="single-checbox">
                                 <div class="checkbox-inlines">
@@ -93,7 +93,7 @@
                         <div class="card-body">
 
                             <div class="border-bottom mb-3">
-                                <h5>{{ __('Service Benefits') }}</h5>
+                                <h5>{{ __('Book Benefits') }}</h5>
                             </div>
                             <div class="single-checbox">
                                 @foreach($service_benifits as $benifit)
@@ -110,14 +110,14 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="border-bottom mb-3">
-                                <h5>{{ __('Seller Details') }}</h5>
+                                <h5>{{ __('Book Details') }}</h5>
                             </div>
                             <div class="single-checbox">
                                 <div class="checkbox-inlines">
-                                    <label><strong>{{ __('Seller:') }}</strong> {{ optional($service->seller)->name }}</label>
+                                    <label><strong>{{ __('Book:') }}</strong> {{ optional($service->seller)->name }}</label>
                                 </div>
                                 <div class="checkbox-inlines">
-                                    <label><strong>{{ __('Seller Since:') }}</strong> {{ Carbon\Carbon::parse(optional($seller_since)->created_at)->year }}</label>
+                                    <label><strong>{{ __('Book Since:') }}</strong> {{ Carbon\Carbon::parse(optional($seller_since)->created_at)->year }}</label>
                                 </div>
                                 <div class="checkbox-inlines">
                                     <label><strong>{{ __('Country:') }}</strong> {{ optional(optional($service->seller)->country)->country }}</label>
@@ -210,7 +210,7 @@
                             </table>
                             <br>
                             @if($service->is_service_online == 1)
-                            <h5>{{ __('Service Faqs: ')}}</h5> <br>
+                            <h5>{{ __('Book Faqs: ')}}</h5> <br>
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>

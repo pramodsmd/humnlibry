@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Service City/State')}}
+    {{__('Book City/State')}}
 @endsection
 
 @section('style')

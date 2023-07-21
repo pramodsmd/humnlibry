@@ -7,7 +7,7 @@
 @endsection
 
 @section('site-title')
-    {{__('All Seller')}}
+    {{__('All Book')}}
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@
                                 <div class="card-body">
                                     <x-msg.success/>
                                     <x-msg.error/>
-                                    <h4 class="header-title">{{__('All Seller')}}</h4>
+                                    <h4 class="header-title">{{__('All Book')}}</h4>
                                     @can('user-delete')
                                         <x-bulk-action/>
                                     @endcan

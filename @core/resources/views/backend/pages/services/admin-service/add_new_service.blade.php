@@ -1,7 +1,7 @@
 @extends('backend.admin-master')
 
 @section('site-title')
-    {{__('Add New Service')}}
+    {{__('Add New Books')}}
 @endsection
 @section('style')
     <x-media.css/>

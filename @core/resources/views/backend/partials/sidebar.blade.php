@@ -46,7 +46,7 @@
                         <li class="{{ active_menu('admin-home/area') }}
                             @if (request()->is('admin-home/seller-settings/*') || request()->is('admin-home/frontend/seller-verify/all')) active @endif">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-back-right"></i>
-                                <span>{{ __('Service Provider Settings') }}</span></a>
+                                <span>{{ __('Book Provider Setting') }}</span></a>
                             <ul class="collapse">
                                 <!--@canany(['payout-list'])-->
                                 <!--    <li class="{{ active_menu('admin-home/seller-settings/payout-request/all') }}">-->
@@ -74,7 +74,7 @@
 
                                 @canany(['all-seller'])
                                     <li class="{{ active_menu('admin-home/frontend/seller-verify/all') }}">
-                                        <a href="{{ route('admin.frontend.seller.all') }}" aria-expanded="true">{{ __('All Service Providers') }}</a>
+                                        <a href="{{ route('admin.frontend.seller.all') }}" aria-expanded="true">{{ __('All Book Providers') }}</a>
                                     </li>
                                 @endcanany
                             </ul>
@@ -125,7 +125,7 @@
                         <li class="{{ active_menu('admin-home/country') }}
                     @if (request()->is('admin-home/country/*')) active @endif">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-flag-alt"></i>
-                                <span>{{ __('Service Country') }}</span></a>
+                                <span>{{ __('Book Country') }}</span></a>
                             <ul class="collapse">
                                 @can('country-list')
                                     <li class="{{ active_menu('admin-home/city') }} @if (request()->is('admin-home/country')) active @endif"><a
@@ -152,7 +152,7 @@
                         <li class="{{ active_menu('admin-home/city') }}
                     @if (request()->is('admin-home/city/*')) active @endif">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-arrow-circle-right"></i>
-                                <span>{{ __('Service City') }}</span></a>
+                                <span>{{ __('Book City') }}</span></a>
                             <ul class="collapse">
                                 @can('city-list')
                                     <li class="{{ active_menu('admin-home/city') }} @if (request()->is('admin-home/city')) active @endif"><a
@@ -180,15 +180,15 @@
                             class=" {{ active_menu('admin-home/services') }}
                             @if (request()->is(['admin-home/services/*','admin-home/services/service-book-settings','admin-home/services/service-details-settings','admin-home/services/service-create-settings'])) active @endif">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-list-ol"></i>
-                                <span>{{ __('All  Services') }}</span></a>
+                                <span>{{ __('All  Books') }}</span></a>
                             <ul class="collapse">
                                 @can('service-list')
                                     <li class="{{ active_menu('admin-home/services') }} @if (request()->is('admin-home/services')) active @endif">
-                                        <a href="{{ route('admin.services') }}">{{ __('All Services') }}</a></li>
+                                        <a href="{{ route('admin.services') }}">{{ __('All Books') }}</a></li>
                                 @endcan
 {{--                                @can('coupon-list')--}}
 {{--                                    <li class="{{ active_menu('admin-home/services/coupons/all') }} @if (request()->is('admin-home/services/coupons/all')) active @endif">--}}
-{{--                                        <a href="{{ route('admin.service.coupons') }}">{{ __('Service Coupons') }}</a></li>--}}
+{{--                                        <a href="{{ route('admin.service.coupons') }}">{{ __('Book Coupons') }}</a></li>--}}
 {{--                                @endcan--}}
                                 @can('service-book-setting')
                                     <li class="{{ active_menu('admin-home/services/login-register-settings') }}"><a
@@ -196,11 +196,11 @@
                                 @endcan
                                 @can('service-detail-setting')
                                 <li class="{{ active_menu('admin-home/services/service-details-settings') }}"><a
-                                href="{{ route('admin.service.details.settings') }}">{{ __('Service Details Settings') }}</a></li>
+                                href="{{ route('admin.service.details.settings') }}">{{ __('Book Details Setting') }}</a></li>
                                 @endcan
                                 @can('service-create-setting')
                                      <li class="{{ active_menu('admin-home/services/service-create-settings') }}"><a
-                                     href="{{ route('admin.service.create.settings') }}">{{ __('Service Create Settings') }}</a></li>
+                                     href="{{ route('admin.service.create.settings') }}">{{ __('Book Create Setting') }}</a></li>
                                 @endcan
                                 <li class="{{ active_menu('admin-home/services/service-book-settings') }}"><a
                                                 href="{{ route('admin.service.book.settings') }}">{{ __('Service Book Settings') }}</a></li>
@@ -324,7 +324,7 @@
                                         @endcan
                                         @can('seller-subscription-list')
                                             <li class="{{ active_menu('admin-home/subscription/seller-subscription') }} @if (request()->is('admin-home/subscription/seller-subscription/*')) active @endif"><a
-                                                 href="{{ route('admin.seller.subscription') }}">{{ __('Service Provider Subscription') }}</a></li>
+                                                 href="{{ route('admin.seller.subscription') }}">{{ __('Book Provider Subscription') }}</a></li>
                                         @endcan
                                         <!--@can('subscription-coupon-list')-->
                                         <!--    <li class="{{ active_menu('admin-home/subscription/coupon') }} @if (request()->is('admin-home/subscription/coupon/*')) active @endif"><a-->
@@ -440,14 +440,12 @@
                                 @endcan
                                 @can('admin-service-add')
                                     <li class="{{ active_menu('admin-home/services/admin-service/add-new-service') }} @if (request()->is('admin-home/services/admin-service/add-new-service')) active @endif">
-                                        <a href="{{ route('admin.add.service') }}">{{ __('Add Service') }}</a></li>
+                                        <a href="{{ route('admin.add.service') }}">{{ __('Add Book') }}</a></li>
                                 @endcan
 
                             </ul>
                         </li>
                     @endcanany
-
-
 
                     <!--@canany(['child-category-list', 'child-category-create'])-->
                     <!--    <li-->

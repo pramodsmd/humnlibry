@@ -57,7 +57,7 @@
                                                 <li><strong>{{__('Price')}}: </strong>{{float_amount_with_currency_symbol($data->price)}}</li>
                                                 <li><strong>{{__('Connect')}}: </strong>{{$data->connect}}</li>
                                                 <li><strong>{{__('Service')}}: </strong>{{$data->service}}</li>
-                                                <li><strong>{{__('Job')}}: </strong>{{$data->job}}</li>
+                                                <!-- <li><strong>{{__('Job')}}: </strong>{{$data->job}}</li> -->
                                                 <li><strong>{{__('Service Provider Using This Subscription')}}: </strong>{{optional($data->seller)->count()}}</li>
                                             </ul>
 

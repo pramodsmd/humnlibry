@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Admin Services')}}
+    {{__('Admin Books')}}
 @endsection
 
 @section('style')
