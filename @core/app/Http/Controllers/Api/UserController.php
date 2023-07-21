@@ -24,6 +24,7 @@ use Illuminate\Support\Str;
 use App\OrderCompleteDecline;
 use Modules\Wallet\Entities\Wallet;
 use Modules\Wallet\Entities\WalletHistory;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -178,6 +179,95 @@ class UserController extends Controller
             'wallet_history_id' => $deposit_history->id
         ]],200);
     }
+   
+    public function walletTransfer(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'amount' => 'required',
+            'receiver' => 'required',
+        ]); 
+        if($validator->fails()) {
+             return response()->json([
+                'error' => true,
+                'message' => $validator->errors()
+            ],400);
+        }
+        $sender_id = auth('sanctum')->id();
+        $receiver = $request->receiver;
+        $amount=$request->amount;
+        
+        if(is_integer($receiver)){
+            $receiver_details = User::where('phone',$receiver)->first();
+        }else{
+            $receiver_details = User::where('email', $receiver)->first(); 
+        }
+        if(empty($receiver_details)){
+            return response()->json([
+                'error' => true,
+                'message' => "receiver not registered"
+            ],400);
+        }
+        if($receiver_details->id==$sender_id){
+            return response()->json([
+                'error' => true,
+                'message' => "could not send fund to yourself"
+            ],400);
+        }
+
+        $user_column =  'buyer_id';
+        $sender = Wallet::where('buyer_id',$sender_id)->first();
+        if(empty($sender)){
+            Wallet::create([
+                $user_column => $sender_id,
+                'balance' => 0,
+                'status' => 0,
+            ]);
+        }
+        $receiver_wallet= Wallet::where('buyer_id',$receiver_details->id)->first();
+        if(empty($receiver_wallet)){
+            Wallet::create([
+                $user_column => $receiver_details->id,
+                'balance' => 0,
+                'status' => 0,
+            ]);
+        }
+      
+        if($sender->balance < $amount){
+            return response()->json([
+                'error' => true,
+                'message' => "money transfer failed due to insufficient balance"
+            ],400);
+        }
+        $sender_balance=$sender->balance??'';
+        $receiver_balance =$receiver_wallet->balance??'';
+        // $sender = Wallet::where('buyer_id',$sender_id)->first();
+        Wallet::where('buyer_id', $sender_id)->update(['balance'=>$sender_balance-$amount]);
+        Wallet::where('buyer_id', $receiver_details->id)->update(['balance'=>$receiver_balance+$amount]);
+        $deposit_history = WalletHistory::create([
+            $user_column => $sender_id,
+            'amount' => $amount,
+            'type'   =>'send',
+            'sender_receiver_id'=>$receiver_details->id,
+            'payment_gateway' => "",
+            'payment_status' => 'complete',
+            'status' => 1
+        ]);
+        $deposit_history = WalletHistory::create([
+            $user_column => $receiver_details->id,
+            'amount' => $amount,
+            'type'   =>'received',
+            'sender_receiver_id'=>$sender_id,
+            'payment_gateway' => "",
+            'payment_status' => 'complete',
+            'status' => 1
+        ]);
+        return response()->success([
+            'messgae' =>"fund transfered successfully",
+            'status' => 200
+        ]);
+      
+    }
+
 
     public function login(Request $request)
     {

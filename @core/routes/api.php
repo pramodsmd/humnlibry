@@ -77,6 +77,9 @@ Route::group(['prefix'=>'v1', 'middleware' => 'setlang'],function(){
             Route::post('list',[OrderReportController::class,'list']);
         });
         /* Report api route end */
+        //send money
+        Route::post('/transfer', [UserController::class, 'walletTransfer']);      
+
 
         if(moduleExists("Wallet")) {
             Route::group(['prefix' => 'wallet'], function () {
