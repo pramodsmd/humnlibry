@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Xgenious\Paymentgateway\Facades\XgPaymentGateway;
-
+use DB;
+use Auth;
 class MiscellaneousController extends Controller
 {
     public function modulePermission(){
@@ -115,6 +116,61 @@ class MiscellaneousController extends Controller
            'message'=> __('something went wrong, try after sometime')
        ]);
    }
+    
+     
+   public function Notification(Request $request){
+       $data=[];
+       $data['id']=$id=auth("sanctum")->user()->id;
+           
+       
+
+       $validator = Validator::make($data, [
+        'id' => 'required',     
+       ]);
+
+    if ($validator->fails()) {
+         return response()->json([
+            'error' => true,
+            'message' => $validator->errors()
+        ],400);
+    }
+    $notificationcount=0;
+    $notificationlist=[];
+    $details=auth("sanctum")->user();
+       $user_type=$details->user_type;
+    $notifications= DB::table('notifications')->latest()->select(['id','data','buyer_status','read_at'])->get();
+
+      foreach($notifications as $key=>$notification){
+        $data=json_decode($notification->data);
+         if(isset($data->buyer_id) && $user_type==1){
+                 if($data->buyer_id==$id){
+                       array_push($notificationlist,$notification);
+                     
+                       if($notification->buyer_status==null){
+                           $notificationcount++; 
+                       }
+
+                 }
+           }else{
+            if($data->seller_id==$id){
+                array_push($notificationlist,$notification);
+
+                if($notification->read_at==null){
+                    $notificationcount++;   
+
+                   }          }
+           }
+        }
+        return response()->success([
+            'un_read_notification'=>$notificationcount,
+            'notification'=>$notificationlist,
+        ]);
+
+   }
+
+
+
+
 
     
 }

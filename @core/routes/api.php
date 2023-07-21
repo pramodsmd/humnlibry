@@ -35,6 +35,10 @@ Route::group(['prefix'=>'v1', 'middleware' => 'setlang'],function(){
     Route::get('/admin-commission-type',[MiscellaneousController::class,'adminCommissionType']);
     Route::post('/account-delete',[MiscellaneousController::class,'accountDelete'])->middleware('auth:sanctum');
     
+    //notification list
+    Route::get('/notification',[MiscellaneousController::class,'Notification']);
+
+    
     
     //todo: languages
     Route::get('/language',[LanguageController::class,'languageInfo']);
