@@ -93,7 +93,7 @@ Route::group(['prefix'=>'seller','middleware'=>['auth','inactiveuser','BuyerChec
     Route::post('cancel/order/if-cash-on-delivery/payment-pending/{id}','Frontend\SellerController@orderCancel')->name('seller.order.cancel.cod.payment.pending');
 
 
-    /* extra order request */
+    /* Extra Booking request */
     Route::post('order/extra-service','Frontend\SellerController@extraService')->name('seller.order.extra.service');
     Route::post('order/extra-service/delete','Frontend\SellerController@extraServiceDelete')->name('seller.order.extra.service.delete');
 

@@ -98,7 +98,7 @@ Route::group(['middleware' => ['globalVariable', 'maintains_mode','setlang']], f
     Route::get('/order-cancel/{id}','FrontendController@order_payment_cancel')->name('frontend.order.payment.cancel');
     Route::get('/order-cancel-static','Frontend\ServiceListController@order_payment_cancel_static')->name('frontend.order.payment.cancel.static');
 
-    //order payment routes 
+    //booking payment routes 
     Route::get('/paypal/ipn','ServicePaymentController@paypal_ipn')->name('frontend.paypal.ipn');
     Route::post('/paytm/ipn','ServicePaymentController@paytm_ipn')->name('frontend.paytm.ipn');
     Route::get('/paystack/ipn','ServicePaymentController@paystack_ipn')->name('frontend.paystack.ipn');

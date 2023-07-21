@@ -75,7 +75,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | The application locale determines the default locale that will be used
-    | by the translation service provider. You are free to set this value
+    | by the translation book provider. You are free to set this value
     | to any of the locales which will be supported by the application.
     |
     */
@@ -125,10 +125,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
+    | Autoloaded book providers
     |--------------------------------------------------------------------------
     |
-    | The service providers listed here will be automatically loaded on the
+    | The book providers listed here will be automatically loaded on the
     | request to your application. Feel free to add your own services to
     | this array to grant expanded functionality to your applications.
     |
@@ -137,7 +137,7 @@ return [
     'providers' => [
 
         /*
-         * Laravel Framework Service Providers...
+         * Laravel Framework book providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -164,12 +164,12 @@ return [
         
 
         /*
-         * Package Service Providers...
+         * Package book providers...
          */
 
         Barryvdh\DomPDF\ServiceProvider::class,
         /*
-         * Application Service Providers...
+         * Application book providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,

@@ -106,7 +106,7 @@ Route::group(['prefix'=>'v1', 'middleware' => 'setlang'],function(){
         Route::post('/order/request/status/complete/decline',[UserController::class,'orderCompleteRequestDecline']);
         Route::get('/order/request/complete/decline/history',[UserController::class,'orderCompleteRequestDeclineHistory']);
 
-        /* extra order request */
+        /* Extra Booking request */
         Route::group(['prefix' => 'order'],function(){
             Route::get('extra-service/list/{id}',[UserController::class,'extraServiceList']);
             Route::post('extra-service/accept',[UserController::class,'extraServiceAccept']);
@@ -272,7 +272,7 @@ Route::group(['prefix'=>'v1', 'middleware' => 'setlang'],function(){
             Route::post('/order/change-status',[SellerController::class,'OrderStatusChange']);
         });
 
-        /* extra order request */
+        /* Extra Booking request */
         Route::group(['prefix' => 'order'],function(){
             Route::post('order-decline',[SellerController::class,'orderDecline']);
             Route::post('extra-service/add',[SellerController::class,'extraService']);
