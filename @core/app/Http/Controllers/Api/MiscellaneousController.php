@@ -137,7 +137,7 @@ class MiscellaneousController extends Controller
     $notificationlist_final=[];
     $details=auth("sanctum")->user();
     $user_type=$details->user_type;
-    $notifications= DB::table('notifications')->latest()->select(['id','data','buyer_status','read_at'])->latest()->get();
+    $notifications= DB::table('notifications')->latest()->select(['id','data','buyer_status','read_at'])->get();
 
       foreach($notifications as $key=>$notification){
         $data=json_decode($notification->data);
