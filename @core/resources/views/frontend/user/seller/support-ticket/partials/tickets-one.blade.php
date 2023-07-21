@@ -172,7 +172,7 @@
                                 <select name="order_id">
                                     <option value="">{{__('Select Order')}}</option>
                                     @foreach($orders as $order)
-                                        <option value="{{ $order->id }}">{{ __('Order ID#') }} {{ $order->id }}</option>
+                                        <option value="{{ $order->id }}">{{ __('Booking ID#') }} {{ $order->id }}</option>
                                     @endforeach
                                 </select>
                             </div>

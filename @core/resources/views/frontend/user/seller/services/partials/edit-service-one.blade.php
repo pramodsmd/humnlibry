@@ -44,7 +44,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="dashboard-settings margin-top-40">
-                                <a class="btn btn-success" href="{{ route('seller.services') }}"> {{__('All Services')}}</a>
+                                <a class="btn btn-success" href="{{ route('seller.services') }}"> {{__('All Books')}}</a>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -93,11 +93,11 @@
 
                                     <div class="single-dashboard-input">
                                         <div class="single-info-input margin-top-30">
-                                            <label for="title" class="info-title"> {{__('Service Title')}} <span class="text-danger">*</span> </label>
+                                            <label for="title" class="info-title"> {{__('Book Title')}} <span class="text-danger">*</span> </label>
                                             <input class="form--control" name="title" id="title" value="{{$service->title}}" type="text" placeholder="{{__('Add title')}}">
                                         </div>
                                         <div class="single-info-input margin-top-30 mt-5">
-                                            <label for="video" class="info-title"> {{__('Service Video Url')}} </label>
+                                            <label for="video" class="info-title"> {{__('Book Video Url')}} </label>
                                             <input class="form--control" name="video" id="video" value="{{$service->video}}" type="text" placeholder="{{__('youtube embed code')}}">
                                             <small class="text-danger">{{__('must be embed code from youtube.')}}</small>
                                         </div>
@@ -116,7 +116,7 @@
 
                                     <div class="single-dashboard-input">
                                         <div class="single-info-input margin-top-30">
-                                            <label for="description" class="info-title"> {{__('Service Description')}} <span class="text-danger">*</span> </label>
+                                            <label for="description" class="info-title"> {{__('Book Description')}} <span class="text-danger">*</span> </label>
                                             <textarea class="form--control textarea--form summernote" name="description" placeholder="{{__('Type Description')}}">{{$service->description}}</textarea>
                                         </div>
                                     </div>

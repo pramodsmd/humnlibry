@@ -68,7 +68,7 @@
                                     <div class="single-dashboard-input what-include-element">
                                         <div class="single-info-input margin-top-20">
                                             <label>{{ __('Title') }}</label>
-                                            <input class="form-control" type="text" name="include_service_title[]" placeholder="{{__('Service title')}}">
+                                            <input class="form-control" type="text" name="include_service_title[]" placeholder="{{__('Book Title')}}">
                                         </div>
                                         <div class="single-info-input margin-top-20 is_service_online_hide">
                                             <label>{{ __('Unit Price') }}</label>
@@ -111,7 +111,7 @@
                                     <div class="single-dashboard-input additional-services">
                                         <div class="single-info-input margin-top-20">
                                             <label>{{ __('Title') }}</label>
-                                            <input class="form-control" type="text" name="additional_service_title[]" placeholder="{{__('Service title')}}">
+                                            <input class="form-control" type="text" name="additional_service_title[]" placeholder="{{__('Book Title')}}">
                                         </div>
                                         <div class="single-info-input margin-top-20">
                                             <label>{{ __('Unit Price') }}</label>
@@ -202,7 +202,7 @@
                             '<div class="single-dashboard-input what-include-element">\
                                 <div class="single-info-input margin-top-20">\
                                     <label>{{ __('Title') }}</label>\
-                                <input class="form-control" type="text" name="include_service_title[]" placeholder="{{__('Service title')}}">\
+                                <input class="form-control" type="text" name="include_service_title[]" placeholder="{{__('Book Title')}}">\
                             </div>\
                             <div class="single-info-input margin-top-20 is_service_online_hide">\
                                 <label>{{ __('Unit Price') }}</label>\
@@ -234,7 +234,7 @@
                             '<div class="single-dashboard-input additional-services">\
                                   <div class="single-info-input margin-top-20">\
                                       <label>{{ __('Title') }}</label>\
-                               <input class="form-control" type="text" name="additional_service_title[]" placeholder="{{__('Service title')}}">\
+                               <input class="form-control" type="text" name="additional_service_title[]" placeholder="{{__('Book Title')}}">\
                             </div>\
                             <div class="single-info-input margin-top-20">\
                                 <label>{{ __('Unit Price') }}</label>\

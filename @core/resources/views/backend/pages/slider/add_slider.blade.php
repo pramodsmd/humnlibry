@@ -37,7 +37,7 @@
                                 <th>{{__('Image')}}</th>
                                 <th>{{__('Title')}}</th>
                                 <th>{{__('Sub Title')}}</th>
-                                <th>{{__('Service Title')}}</th>
+                                <th>{{__('Book Title')}}</th>
                                 <th>{{__('Action')}}</th>
                                 </thead>
                                 <tbody>

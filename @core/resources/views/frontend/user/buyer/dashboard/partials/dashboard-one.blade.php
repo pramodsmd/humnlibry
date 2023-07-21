@@ -99,7 +99,7 @@
                                     </div>
                                     <div class="contents">
                                         <h2 class="order-titles"> {{ $complete_order }} </h2>
-                                        <span class="order-para">{{ __('Order Completed') }}</span>
+                                        <span class="order-para">{{ __('Booking Completed') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@
                                             <tbody>
                                             @foreach($last_10_tickets as $ticket)
                                                 <tr>
-                                                    <td data-label="{{__('Ticket')}}" class="text-left">{{__('Order Id')}} #{{ $ticket->order_id }}, {{ $ticket->title }} </td>
+                                                    <td data-label="{{__('Ticket')}}" class="text-left">{{__('Booking ID')}} #{{ $ticket->order_id }}, {{ $ticket->title }} </td>
                                                     <td data-label="{{__('Ticket Details')}}">
                                                         <a href="{{ route('buyer.support.ticket.view', $ticket->id) }}">
                                                             <span class="icon eye-icon"><i class="las la-eye"></i></span>

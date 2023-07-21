@@ -25,15 +25,15 @@
                         </ul>
                     </li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="service_list.html">Service List</a></li>
+                    <li><a href="service_list.html">Book List</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
                     <li class="menu-item-has-children current-menu-item">
                         <a href="#">Others</a>
                         <ul class="sub-menu">
-                            <li><a href="service_details.html">Service Details</a></li>
-                            <li><a href="02_service_details.html">Service Details Two</a></li>
-                            <li><a href="03_service_details.html">Service Details Three</a></li>
-                            <li><a href="04_service_details.html">Service Details Four</a></li>
+                            <li><a href="service_details.html">Book Details</a></li>
+                            <li><a href="02_service_details.html">Book Details Two</a></li>
+                            <li><a href="03_service_details.html">Book Details Three</a></li>
+                            <li><a href="04_service_details.html">Book Details Four</a></li>
                             <li><a href="profile.html">Profile</a></li>
                             <li><a href="seller_profile.html">Seller Profile</a></li>
                             <li><a href="seller_order_view.html">Seller View</a></li>

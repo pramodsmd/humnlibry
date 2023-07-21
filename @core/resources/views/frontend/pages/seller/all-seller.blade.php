@@ -50,7 +50,7 @@
                                         </span>
                                     </div>
                                 @endif
-                                <span class="order_completation">{{$seller->order->where('status', 2)->count() ?? 0}} {{__('Order Completed')}}</span> 
+                                <span class="order_completation">{{$seller->order->where('status', 2)->count() ?? 0}} {{__('Booking Completed')}}</span> 
                             </div>
                         </div>
                     </div>

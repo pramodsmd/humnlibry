@@ -60,7 +60,7 @@
                                                                 <div class="single-info-input">
                                                                     <label for="status" class="info-title"> {{__('Status')}} </label>
                                                                     <select name="status">
-                                                                        <option value="">{{__('Select Order Status')}}</option>
+                                                                        <option value="">{{__('Select Booking Status')}}</option>
                                                                         <option value="1" @if(request()->get('status') == 1) selected @endif>{{ __('Completed') }}</option>
                                                                         <option value="in_completed" @if(request()->get('status') == 'in_completed') selected @endif>{{  __('In Completed') }}</option>
                                                                     </select>

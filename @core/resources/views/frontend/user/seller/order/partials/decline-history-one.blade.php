@@ -95,7 +95,7 @@
             "use strict";
 
             $(document).ready(function() {
-                //order complete status approve
+                //Booking Complete status approve
             });
 
         })(jQuery);

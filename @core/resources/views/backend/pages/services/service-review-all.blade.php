@@ -26,7 +26,7 @@
                         <div class="table-wrap table-responsive">
                             <table class="table table-default">
                                 <thead>
-                                <th>{{__('Order ID')}}</th>
+                                <th>{{__('Booking ID')}}</th>
                                 <th>{{__('Reader Name')}}</th>
                                 <th>{{__('Book Name')}}</th>
                                 <th>{{__('Review Rating')}}</th>

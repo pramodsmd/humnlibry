@@ -28,14 +28,14 @@
                             <table class="table table-default">
                                 <thead>
                                 <th>{{__('ID')}}</th>
-                                <th>{{__('Buyer Name')}}</th>
-                                <th>{{__('Buyer Email')}}</th>
-                                <th>{{__('Buyer Phone')}}</th>
-                                <th>{{__('Buyer Address')}}</th>
+                                <th>{{__('Reader Name')}}</th>
+                                <th>{{__('Reader Email')}}</th>
+                                <th>{{__('Reader Phone')}}</th>
+                                <th>{{__('Reader Address')}}</th>
                                 <th>{{__('Total Amount')}}</th>
                                 <th>{{__('Payment Status')}}</th>
-                                <th>{{__('Order Status')}}</th>
-                                <th>{{__('Order Type')}}</th>
+                                <th>{{__('Booking Status')}}</th>
+                                <th>{{__('Booking Type')}}</th>
                                 <th>{{__('Action')}}</th>
                                 </thead>
                                 <tbody>
@@ -57,7 +57,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModal">{{ __('Change Order Status ') }}</h5>
+                        <h5 class="modal-title" id="editModal">{{ __('Change Booking Status ') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -94,7 +94,7 @@
             $(document).ready(function(){
 
 
-                //order status change
+                //Booking Status change
                 $(document).on('click', '.report_add_modal', function () {
                     let el = $(this);
                     let status_id = el.data('status_id');

@@ -1,6 +1,6 @@
 @extends('frontend.user.seller.seller-master')
 @section('site-title')
-    {{__('Services')}}
+    {{__('Books')}}
 @endsection
 @section('content')
     <x-frontend.seller-buyer-preloader/>
@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="dashboard-settings margin-top-40">
-                                <h2 class="dashboards-title"> {{__('All Services')}} </h2>
+                                <h2 class="dashboards-title"> {{__('All Books')}} </h2>
                             </div>
                         </div>
                     </div>

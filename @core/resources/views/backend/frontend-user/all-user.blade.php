@@ -162,7 +162,7 @@
                             </select>
                         </div>
                         <div class="form-group service_city_wrapper">
-                            <label class="forms-label"> {{ __('Service City*') }} </label>
+                            <label class="forms-label"> {{ __('Book City*') }} </label>
                             <select name="edit_city" id="edit_city" class="get_service_city form-control">
                                 <option value="">{{ __('Select City') }}</option>
                                 @foreach ($cities as $city)
@@ -170,15 +170,15 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group service_area_wrapper">
-                            <label class="forms-label"> {{ __('Service Area*') }} </label>
+                        <!-- <div class="form-group service_area_wrapper">
+                            <label class="forms-label"> {{ __('Book Area*') }} </label>
                             <select name="edit_area" id="edit_area" class="get_service_area form-control">
                                 <option value="">{{ __('Select Area') }}</option>
                                 @foreach ($areas as $area)
                                     <option value="{{ $area->id }}">{{ $area->service_area }}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label for="edit_username">{{__('Address')}}</label>

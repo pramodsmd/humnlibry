@@ -54,16 +54,16 @@
 
                             <div class="single-dashboard-input">
                                 <div class="single-info-input margin-top-30">
-                                    <label for="seller_id" class="info-title"> {{__('Select Seller*')}} </label>
+                                    <label for="seller_id" class="info-title"> {{__('Select Book Provider*')}} </label>
                                     <select name="seller_id" id="seller_id" class="form-control">
-                                        <option value="">{{__('Select Seller')}}</option>
+                                        <option value="">{{__('Select Book Provider')}}</option>
                                         @foreach($sellers as $seller)
                                             <option value="{{ $seller->id }}"  @if($seller->id==$service->seller_id) selected @endif>{{ $seller->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="single-info-input margin-top-30 mt-5">
-                                    <label for="video" class="info-title"> {{__('Service Video Url')}} </label>
+                                    <label for="video" class="info-title"> {{__('Book Video Url')}} </label>
                                     <input class="form-control" name="video" id="video" value="{{ $service->video }}" type="text" placeholder="{{__('youtube embed code')}}">
                                     <small class="text-danger">{{__('must be embed code from youtube.')}}</small>
                                 </div>
@@ -71,7 +71,7 @@
 
                             <div class="single-dashboard-input">
                                 <div class="single-info-input margin-top-30">
-                                    <label for="title" class="info-title"> {{__('Service Title*')}} </label>
+                                    <label for="title" class="info-title"> {{__('Book Title*')}} </label>
                                     <input class="form-control" name="title" id="title" value="{{ $service->title }}" type="text" placeholder="{{__('Add title')}}">
                                 </div>
                                 
@@ -90,7 +90,7 @@
 
                             <div class="single-dashboard-input">
                                 <div class="single-info-input margin-top-30">
-                                    <label for="description" class="info-title"> {{__('Service Description*')}} </label>
+                                    <label for="description" class="info-title"> {{__('Book Description*')}} </label>
                                     <textarea class="form-control textarea--form summernote" name="description" placeholder="{{__('Type Description')}}"> {{$service->description}} </textarea>
                                 </div>
                             </div>

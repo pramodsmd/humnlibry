@@ -130,7 +130,7 @@
                                                       @if($data->type==="add_service")
                                                        {{ __('New Service Created') }} #{{$data->service_id}}
                                                       @else
-                                                         {{ __('Service Updated') }} #{{$data->service_id}}
+                                                         {{ __('Book Updated') }} #{{$data->service_id}}
                                                       @endif                                                         
                                                          </p>
                                                     <span> {{ \Carbon\Carbon::parse($data->created_at)->diffForHumans() }} </span>

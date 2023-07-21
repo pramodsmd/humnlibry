@@ -45,7 +45,7 @@
                                         <table id="all_order_table" class="custom--table table-td-padding">
                                             <thead>
                                             <tr>
-                                                <th> {{ __('Order ID') }} </th>
+                                                <th> {{ __('Booking ID') }} </th>
                                                 <th> {{ __('Report ID') }} </th>
                                                 <th> {{ __('Report Details') }} </th>
                                                 <th> {{ __('Buyer Details') }} </th>
@@ -55,7 +55,7 @@
                                             <tbody>
                                             @foreach ($reports as $report)
                                                 <tr>
-                                                    <td data-label="{{__('Order ID')}}"> {{ $report->order_id }} </td>
+                                                    <td data-label="{{__('Booking ID')}}"> {{ $report->order_id }} </td>
                                                     <td data-label="{{__('Report ID')}}"> {{ $report->id }} </td>
                                                     <td data-label="{{ __('Report Details') }}">
                                                         <p><strong>{{ __('Report From:') }}</strong> {{ ucfirst($report->report_from) }}</p>

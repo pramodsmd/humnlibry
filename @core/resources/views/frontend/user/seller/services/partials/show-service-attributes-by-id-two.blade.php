@@ -29,7 +29,7 @@
                     <div class="show_service_all_attr">
                         <div class="row">
                             <div class="col-lg-4">
-                                <h5>{{ __('Service Title:') }} <strong>{{ $service->title }}</strong></h5>
+                                <h5>{{ __('Book Title:') }} <strong>{{ $service->title }}</strong></h5>
                                 <div class="dashboard_recentOrder__item__service__thumb mt-3" style="height: 150px; width: 200px">
                                     @if(!empty(render_image_markup_by_attachment_id($service->image, '')))
                                         {!! render_image_markup_by_attachment_id($service->image, '') !!}

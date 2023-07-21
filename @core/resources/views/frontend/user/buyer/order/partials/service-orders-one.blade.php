@@ -48,7 +48,7 @@
                                         <table id="all_order_table" class="custom--table table-td-padding">
                                             <thead>
                                             <tr>
-                                                <th> {{ __('Order ID') }} </th>
+                                                <th> {{ __('Booking ID') }} </th>
                                                 <th> {{ __('Seller Name') }} </th>
                                                 @if(request()->path() == 'buyer/job-orders')
                                                     <!--Job heading -->
@@ -62,16 +62,16 @@
                                                 @endif
                                                 <th> {{ __('Order Pricing') }} </th>
                                                 <th> {{ __('Payment Details') }} </th>
-                                                <th> {{ __('Order Status') }} </th>
-                                                <th> {{ __('Order Type') }} </th>
-                                                <th> {{ __('Order Complete Request') }} </th>
+                                                <th> {{ __('Booking Status') }} </th>
+                                                <th> {{ __('Booking Type') }} </th>
+                                                <th> {{ __('Booking Complete Request') }} </th>
                                                 <th> {{ __('Action') }} </th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             @foreach ($orders as $order)
                                                 <tr>
-                                                    <td data-label="{{__('Order ID')}}"> {{ $order->id }} </td>
+                                                    <td data-label="{{__('Booking ID')}}"> {{ $order->id }} </td>
                                                     <td data-label="{{__('Seller Name')}}"> {{ optional($order->seller)->name }} </td>
 
                                                     <!--job and service info -->
@@ -111,11 +111,11 @@
                                                         @endif
                                                     </td>
 
-                                                    @if ($order->status == 0) <td data-label="{{__('Order Status')}}" class="pending"><span>{{ __('Pending') }}</span></td>@endif
-                                                    @if ($order->status == 1) <td data-label="{{__('Order Status')}}" class="order-active"><span>{{ __('Active') }}</span></td>@endif
-                                                    @if ($order->status == 2) <td data-label="{{__('Order Status')}}" class="completed"><span>{{ __('Completed') }}</span></td>@endif
-                                                    @if ($order->status == 3) <td data-label="{{__('Order Status')}}" class="order-deliver"><span>{{ __('Delivered') }}</span></td>@endif
-                                                    @if ($order->status == 4) <td data-label="{{__('Order Status')}}" class="canceled"><span>{{ __('Cancelled') }}</span></td>@endif
+                                                    @if ($order->status == 0) <td data-label="{{__('Booking Status')}}" class="pending"><span>{{ __('Pending') }}</span></td>@endif
+                                                    @if ($order->status == 1) <td data-label="{{__('Booking Status')}}" class="order-active"><span>{{ __('Active') }}</span></td>@endif
+                                                    @if ($order->status == 2) <td data-label="{{__('Booking Status')}}" class="completed"><span>{{ __('Completed') }}</span></td>@endif
+                                                    @if ($order->status == 3) <td data-label="{{__('Booking Status')}}" class="order-deliver"><span>{{ __('Delivered') }}</span></td>@endif
+                                                    @if ($order->status == 4) <td data-label="{{__('Booking Status')}}" class="canceled"><span>{{ __('Cancelled') }}</span></td>@endif
 
                                                     <td data-label="Order Pricing">
                                                         @if($order->is_order_online==1)
@@ -126,11 +126,11 @@
                                                     </td>
 
                                                     @if ($order->order_complete_request == 0)
-                                                        <td data-label="{{__('Order Status')}}" class="pending"><span>{{ __('No Request Create') }}</span></td>
+                                                        <td data-label="{{__('Booking Status')}}" class="pending"><span>{{ __('No Request Create') }}</span></td>
                                                     @endif
 
                                                     @if ($order->order_complete_request == 1)
-                                                        <td data-label="Order Status" class="pending">
+                                                        <td data-label="Booking Status" class="pending">
                                                             <span>{{ __('Complete Request') }}</span> <br>
                                                             <span><x-order-complete-request-approve :url="route('buyer.order.complete.request.approve',$order->id)"/></span>
                                                             <span class="btn btn-warning btn-sm mt-1">
@@ -147,10 +147,10 @@
                                                     @endif
 
                                                     @if ($order->order_complete_request == 2)
-                                                        <td data-label="{{__('Order Status')}}" class="completed"> <span>{{ __('Completed') }}</span></td>
+                                                        <td data-label="{{__('Booking Status')}}" class="completed"> <span>{{ __('Completed') }}</span></td>
                                                     @endif
                                                     @if ($order->order_complete_request == 3)
-                                                        <td data-label="{{__('Order Status')}}">
+                                                        <td data-label="{{__('Booking Status')}}">
                                                             @if(optional($order->completedeclinehistory)->count() >=1)
                                                             <span class="text-danger">{{ __('Request Decline') }}</span> <br>
                                                             <span class="btn btn-warning"><a href="{{ route('buyer.order.request.decline.history',$order->id) }}"> {{ __('View History') }} </a></span>
@@ -359,7 +359,7 @@
             "use strict";
 
             $(document).ready(function() {
-                //order complete status approve
+                //Booking Complete status approve
                 $(document).on('click','.swal_status_change',function(e){
                     e.preventDefault();
                     Swal.fire({

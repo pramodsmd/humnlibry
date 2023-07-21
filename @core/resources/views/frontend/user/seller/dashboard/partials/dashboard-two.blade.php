@@ -1,6 +1,6 @@
 @extends('frontend.user.buyer.buyer-master')
 @section('site-title')
-    {{__('Service Provider Dashboard')}}
+    {{__('book provider Dashboard')}}
 @endsection
 @section('style')
     <style>

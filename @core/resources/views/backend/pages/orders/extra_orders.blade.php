@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Extra Orders')}}
+    {{__('Extra Bookings')}}
 @endsection
 
 @section('style')
@@ -20,14 +20,14 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('Extra Orders')}}  </h4>
+                                <h4 class="header-title">{{__('Extra Bookings')}}  </h4>
                             </div>
                         </div>
                         <div class="table-wrap table-responsive">
                             <table class="table table-default">
                                 <thead>
-                                <th>{{__('Main Order ID')}}</th>
-                                <th>{{__('Extra Order ID')}}</th>
+                                <th>{{__('Main Booking ID')}}</th>
+                                <th>{{__('Extra Booking ID')}}</th>
                                 <th>{{__('Buyer Details')}}</th>
                                 <th>{{__('Seller Details')}}</th>
                                 <th>{{__('Title')}}</th>

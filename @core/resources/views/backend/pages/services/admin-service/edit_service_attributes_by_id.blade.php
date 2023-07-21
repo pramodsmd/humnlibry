@@ -82,7 +82,7 @@
                                             <input type="hidden" name="service_include_id[]" value="{{ $include->id }}">
                                             <div class="single-info-input margin-top-20">
                                                 <label>{{ __('Title') }}</label>
-                                                <input class="form-control" type="text" name="include_service_title[]" placeholder="{{__('Service title')}}" value="{{$include->include_service_title}}">
+                                                <input class="form-control" type="text" name="include_service_title[]" placeholder="{{__('Book Title')}}" value="{{$include->include_service_title}}">
                                             </div>
                                             <div class="single-info-input margin-top-20 @if($service->is_service_online==1) is_service_online_hide @endif">
                                                 <label>{{ __('Unit Price') }}</label>
@@ -129,7 +129,7 @@
                                                 <input type="hidden" name="service_additional_id[]" value="{{ $additional->id }}">
                                                 <div class="single-info-input margin-top-20">
                                                     <label>{{ __('Title') }}</label>
-                                                    <input class="form-control" type="text" name="additional_service_title[]" placeholder="{{__('Service title')}}"  value="{{$additional->additional_service_title}}">
+                                                    <input class="form-control" type="text" name="additional_service_title[]" placeholder="{{__('Book Title')}}"  value="{{$additional->additional_service_title}}">
                                                 </div>
                                                 <div class="single-info-input margin-top-20">
                                                     <label>{{ __('Unit Price') }}</label>

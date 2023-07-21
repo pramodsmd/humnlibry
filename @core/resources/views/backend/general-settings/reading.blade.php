@@ -25,7 +25,7 @@
                                </div>
               
                                <div class="form-group">
-                                    <label for="site_logo">{{__('Service List Page')}}</label>
+                                    <label for="site_logo">{{__('Book List Page')}}</label>
                                     <select name="service_list_page" class="form-control">
                                         
                                         @foreach($all_home_pages as $page)

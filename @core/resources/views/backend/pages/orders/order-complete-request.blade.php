@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Order Complete Request')}}
+    {{__('Booking Complete Request')}}
 @endsection
 
 @section('style')
@@ -20,14 +20,14 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('Order Complete Request')}}  </h4>
+                                <h4 class="header-title">{{__('Booking Complete Request')}}  </h4>
                                 <small class="text-info py-2">{{ __('Request from seller to admin and buyer. Buyer will review the request and complete it. Or admin can complete it anytime if buyer not any response') }}</small>
                             </div>
                         </div>
                         <div class="table-wrap table-responsive">
                             <table class="table table-default">
                                 <thead>
-                                <th>{{__('Order ID')}}</th>
+                                <th>{{__('Booking ID')}}</th>
                                 <th>{{__('Order Price')}}</th>
                                 <th>{{__('Request Date')}}</th>
                                 <th>{{__('Seller Details')}}</th>

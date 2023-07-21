@@ -66,7 +66,7 @@
                                                                 <div class="single-info-input">
                                                                     <label for="status" class="info-title"> {{__('Status')}} </label>
                                                                     <select name="status">
-                                                                        <option value="">{{__('Select Order Status')}}</option>
+                                                                        <option value="">{{__('Select Booking Status')}}</option>
                                                                         <option value="1" @if(request()->get('status') == 1) selected @endif>{{ __('Completed') }}</option>
                                                                         <option value="pending" @if(request()->get('status') == 'pending') selected @endif>{{  __('Pending') }}</option>
                                                                     </select>
@@ -112,7 +112,7 @@
                             <div class="dashboard_promo bg-white">
                                 <div class="dashboard_promo__flex">
                                     <div class="dashboard_promo__contents">
-                                        <span class="dashboard_promo__subtitle">{{ __('Order Completed') }}</span>
+                                        <span class="dashboard_promo__subtitle">{{ __('Booking Completed') }}</span>
                                         <h4 class="dashboard_promo__title mt-2">{{ $complete_order }}</h4>
                                     </div>
                                     <div class="dashboard_promo__icon">

@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="order-confirm-area">
-                        <h4 class="title">{{__('Order Details')}}</h4>
+                        <h4 class="title">{{__('Booking Details')}}</h4>
                         @if($errors->any())
                             <ul class="alert alert-danger">
                                 @foreach($errors->all() as $error)

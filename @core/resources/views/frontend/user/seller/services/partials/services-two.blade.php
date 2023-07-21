@@ -1,6 +1,6 @@
 @extends('frontend.user.buyer.buyer-master')
 @section('site-title')
-    {{__('Services')}}
+    {{__('Books')}}
 @endsection
 @section('content')
     <x-frontend.seller-buyer-preloader/>
@@ -19,7 +19,7 @@
                             <div class="dashboard__headerGlobal__flex">
                                 <div class="dashboard__headerGlobal__content">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <h4 class="dashboard_table__title">{{ __('Search Service Module') }}</h4> <i class="las la-angle-down search_by_all"></i>
+                                        <h4 class="dashboard_table__title">{{ __('Search Book Module') }}</h4> <i class="las la-angle-down search_by_all"></i>
                                     </button>
                                 </div>
                                 <div class="dashboard__headerGlobal__btn">
@@ -47,21 +47,21 @@
                                                         <div class="row g-4 mt-3">
                                                             <div class="col-lg-4 col-sm-6">
                                                                 <div class="single-info-input">
-                                                                    <label for="order_id" class="info-title"> {{__('Service ID')}} </label>
-                                                                    <input class="form--control" name="service_id" value="{{ request()->get('service_id') }}" type="text" placeholder="{{ __('Service ID') }}">
+                                                                    <label for="order_id" class="info-title"> {{__('Book ID')}} </label>
+                                                                    <input class="form--control" name="service_id" value="{{ request()->get('service_id') }}" type="text" placeholder="{{ __('Book ID') }}">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-lg-4 col-sm-6">
                                                                 <div class="single-info-input">
-                                                                    <label for="service_title" class="info-title"> {{__('Service Title')}} </label>
-                                                                    <input class="form--control" name="service_title" value="{{ request()->get('service_title') }}" type="text" placeholder="{{ __('Service Title') }}">
+                                                                    <label for="service_title" class="info-title"> {{__('Book Title')}} </label>
+                                                                    <input class="form--control" name="service_title" value="{{ request()->get('service_title') }}" type="text" placeholder="{{ __('Book Title') }}">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-lg-4 col-sm-6">
                                                                 <div class="single-info-input">
-                                                                    <label for="service_status" class="info-title"> {{__('Service Status')}} </label>
+                                                                    <label for="service_status" class="info-title"> {{__('book status')}} </label>
                                                                     <select name="service_status">
                                                                         <option value="">{{__('Select Status')}}</option>
                                                                         <option value="pending" @if(request()->get('service_status') == 'pending') selected @endif>{{ __('Pending') }}</option>
@@ -102,7 +102,7 @@
                 <div class="dashboard__headerContents">
                     <div class="dashboard__headerContents__flex">
                         <div class="dashboard__headerContents__left">
-                            <h4 class="dashboard_table__title"> {{ __('All Services') }} </h4>
+                            <h4 class="dashboard_table__title"> {{ __('All Books') }} </h4>
                         </div>
                             @if(moduleExists('Subscription') && $commissionGlobal->system_type == 'subscription')
                                   @if(!empty(auth('web')->user()->subscribedSeller))

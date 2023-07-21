@@ -28,10 +28,10 @@
                                 <thead>
                                 <th>{{__('Booking ID')}}</th>
                                 <th>{{__('Ticket ID')}}</th>
-                                <th>{{__('Service ID')}}</th>
+                                <th>{{__('Book ID')}}</th>
                                 <th>{{__('Booking Message')}}</th>
                                 <th>{{__('Ticket Message')}}</th>
-                                <th>{{__('Service Message')}}</th>
+                                <th>{{__('Book Message')}}</th>
                                 <th>{{__('Status')}}</th>
                                 <th>{{__('Action')}}</th>
                                 </thead>
@@ -59,9 +59,9 @@
                                                     @if($data->type=="add_service")
                                                        {{ __('New Service Created') }} #{{$data->service_id}}
                                                     @elseif($data->type=="service_status")
-                                                       {{ __('Service Status Updated') }} #{{$data->service_id}}
+                                                       {{ __('book status Updated') }} #{{$data->service_id}}
                                                     @else
-                                                         {{ __('Service Updated') }} #{{$data->service_id}}
+                                                         {{ __('Book Updated') }} #{{$data->service_id}}
                                                     @endif
                                                     
                                                     @endif  </td>

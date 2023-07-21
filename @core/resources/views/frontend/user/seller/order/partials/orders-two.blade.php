@@ -100,15 +100,15 @@
                                                                         <label for="job_title" class="info-title"> {{__('Job Title')}} </label>
                                                                         <input class="form--control" name="job_title" value="{{ request()->get('job_title') }}" type="text" placeholder="{{ __('Job Title') }}">
                                                                     @else
-                                                                        <label for="service_title" class="info-title"> {{__('Service Title')}} </label>
-                                                                        <input class="form--control" name="service_title" value="{{ request()->get('service_title') }}" type="text" placeholder="{{ __('Service Title') }}">
+                                                                        <label for="service_title" class="info-title"> {{__('Book Title')}} </label>
+                                                                        <input class="form--control" name="service_title" value="{{ request()->get('service_title') }}" type="text" placeholder="{{ __('Book Title') }}">
                                                                     @endif
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4 col-sm-6">
                                                                 <div class="single-info-input">
-                                                                    <label for="buyer_name" class="info-title"> {{__('Customer Name')}} </label>
-                                                                    <input class="form--control" name="buyer_name" value="{{ request()->get('buyer_name') }}" type="text" placeholder="{{ __('Buyer Name') }}">
+                                                                    <label for="buyer_name" class="info-title"> {{__('Reader name')}} </label>
+                                                                    <input class="form--control" name="buyer_name" value="{{ request()->get('buyer_name') }}" type="text" placeholder="{{ __('Reader Name') }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-3 col-sm-6">
@@ -220,7 +220,7 @@
                                                 @endif
                                                 <span class="dashboard_table__main__order__contents__subtitle mt-2">
                                                     <a href="javascript:void(0)" class="dashboard_table__main__order__contents__id"> <strong class="text-dark">{{ __('Booking ID:') }}</strong> {{ $order->id }}</a> ,
-                                                    <a href="javascript:void(0)" class="dashboard_table__main__order__contents__author"> <strong class="text-dark">{{ __('Customer Name:') }}</strong>{{ optional($order->buyer)->name }} </a>
+                                                    <a href="javascript:void(0)" class="dashboard_table__main__order__contents__author"> <strong class="text-dark">{{ __('Reader name:') }}</strong>{{ optional($order->buyer)->name }} </a>
                                                 </span>
                                                 <span><strong>{{ __('Booking Date:') }}</strong>  {{ Carbon\Carbon::parse( strtotime($order->created_at))->format('d/m/y') }}</span>
                                             </div>
@@ -286,7 +286,7 @@
                                 </td>
                                 <!-- payment status end -->
 
-                                <!-- order complete request start-->
+                                <!-- Booking Complete request start-->
                                 <td data-label="Booking Status" >
                                 <span class="{{ in_array($order->order_complete_request,[0,1]) ? 'pending' : ' completed' }} d-block">
                                     @php  $review_count = \App\Review::where('order_id',$order->id)->where('type', 1)->where('seller_id',Auth::guard('web')->user()->id)->get(); @endphp
@@ -328,7 +328,7 @@
                                     @endif
                                 </span>
                                     @if(request()->path() == 'seller/orders')
-                                        <!-- order complete request start-->
+                                        <!-- Booking Complete request start-->
                                         @if($order->status == 0 && $order->payment_status == 'pending')
                                             <span class="mx-1 pending"> {{ __('No Request Created') }}</span>
                                         @endif
@@ -339,7 +339,7 @@
                                            data-bs-target="#extraServiceRequest"
                                            class="mt-2 btn btn-secondary extra_submit_request_btn">{{__('Extra Services')}}</a>
                                     @else
-                                        <!-- order complete request start-->
+                                        <!-- Booking Complete request start-->
                                         @if($order->status == 0 && $order->payment_status == 'pending')
                                             <span class="mx-1 pending"> {{ __('No Request Created') }}</span>
                                         @endif
@@ -369,9 +369,9 @@
                                     @endif
 
                                 </td>
-                                <!-- order complete request end-->
+                                <!-- Booking Complete request end-->
 
-                                <!-- Order status start -->
+                                <!-- Booking Status start -->
                                 <td>
                                    @if ($order->status == 0)<div class="dashboard_table__main__priority"><a href="javascript:void(0)" class="priorityBtn pending">{{ __('Pending') }}</a> </div> @endif
                                    @if ($order->status == 1)<div class="dashboard_table__main__priority"><a href="javascript:void(0)" class="priorityBtn active">{{ __('Active') }}</a> </div> @endif
@@ -379,7 +379,7 @@
                                    @if ($order->status == 3)<div class="dashboard_table__main__priority"><a href="javascript:void(0)" class="priorityBtn delivered">{{ __('Delivered') }}</a> </div> @endif
                                    @if ($order->status == 4)<div class="dashboard_table__main__priority"><a href="javascript:void(0)" class="priorityBtn cancel">{{ __('Cancel') }}</a> </div> @endif
                                 </td>
-                                <!-- Order status end -->
+                                <!-- Booking Status end -->
                                 <td>
 
                                     <div class="dashboard_recentOrder__item__icon">

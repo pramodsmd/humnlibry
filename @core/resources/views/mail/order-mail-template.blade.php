@@ -142,7 +142,7 @@
             <p class="wrap-para">{{ __('Hello, Order Created By:') }} {{ optional($order_details->buyer)->name }} <br>
             {{ __('Order has been created successfully at:') .optional($order_details->created_at)->toFormattedDateString().','. ucwords(str_replace("_", " ", $order_details->payment_gateway)) }}
             </p>
-            <h4 class="earning-order-title">{{ __('Your Order ID') }} #{{ $order_details->id }}<br>
+            <h4 class="earning-order-title">{{ __('Your Booking ID') }} #{{ $order_details->id }}<br>
                 {{ __('Total Amount') }} {{ float_amount_with_currency_symbol($order_details->total) }}<br>
                 {{ __('Tax Amount') }} {{ float_amount_with_currency_symbol($order_details->tax) }} <br> <br>
                 @if($order_details->transaction_id !='')

@@ -64,7 +64,7 @@
                             <div class="card-body">
 
                                 <div class="border-bottom mb-3">
-                                    <h5>{{ __('Service Details') }}</h5>
+                                    <h5>{{ __('Book Details') }}</h5>
                                 </div>
                                 <div class="single-checbox">
                                     <div class="checkbox-inlines">
@@ -112,7 +112,7 @@
                         <div class="card-body">
 
                             <div class="border-bottom mb-3">
-                                <h5>{{ __('Customer Details') }}</h5>
+                                <h5>{{ __('Reader Details') }}</h5>
                             </div>
                             <div class="single-checbox">
                                 <div class="checkbox-inlines">
@@ -307,7 +307,7 @@
                                         <div class="single-flex-middle-inner">
                                             <div class="line-charts-wrapper oreder_details_rtl margin-top-40">
                                                 <div class="line-top-contents">
-                                                    <h5 class="earning-title">{{ __('Extra Service Details') }}</h5>
+                                                    <h5 class="earning-title">{{ __('Extra Book Details') }}</h5>
                                                 </div>
                                                 <span class="info-text d-block mb-4">{{__('This is not included in the main service booking calculation')}}</span>
 

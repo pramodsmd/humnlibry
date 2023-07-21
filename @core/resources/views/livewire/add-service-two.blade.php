@@ -55,7 +55,7 @@
                                     <div class="row g-4">
                                         <div class="col-sm-6">
                                             <div class="single-info-input">
-                                                <label for="title" class="info-title"> {{__('Service Title')}} <span class="text-danger">*</span> </label>
+                                                <label for="title" class="info-title"> {{__('Book Title')}} <span class="text-danger">*</span> </label>
                                                 <input class="form--control" name="title" id="title" type="text" placeholder="{{ __('Add title')}}" wire:model.defer="services.title">
                                             </div>
                                             <div class="single-dashboard-input mt-3">
@@ -71,14 +71,14 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="single-info-input">
-                                                <label for="video" class="info-title"> {{__('Service Video Url')}} </label>
+                                                <label for="video" class="info-title"> {{__('Book Video Url')}} </label>
                                                 <input class="form--control" name="video" id="video" type="text" placeholder="{{__('youtube embed code')}}" wire:model.defer="services.video">
                                                 <small class="text-danger">{{__('must be embed code from youtube.')}} <span class="text-dark">{{ __('Ex. <iframe width="560" height="315" src="https://www.youtube.com"></iframe>')  }}</span> </small>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="single-info-input" wire:ignore>
-                                                <label for="summernote" class="info-title"> {{__('Service Description')}} <span class="text-danger">*</span> <small class="text-info">{{__('minimum 150 characters')}} </small>  </label>
+                                                <label for="summernote" class="info-title"> {{__('Book Description')}} <span class="text-danger">*</span> <small class="text-info">{{__('minimum 150 characters')}} </small>  </label>
                                                 <textarea wire:model.defer="services.description" id="summernote" class="form--control textarea--form textarea-input" cols="20" rows="2" placeholder="{{__('Type Description')}}"></textarea>
 
                                             </div>
@@ -209,7 +209,7 @@
                                                                     <div class="col-lg-4 col-sm-6">
                                                                         <div class="single-info-input">
                                                                             <label class="label_title">{{ __('Title') }} <span class="text-danger">*</span> </label>
-                                                                            <input class="form--control" wire:model.defer="include_service_title.0" type="text" placeholder="{{__('Service Title')}}">
+                                                                            <input class="form--control" wire:model.defer="include_service_title.0" type="text" placeholder="{{__('Book Title')}}">
                                                                         </div>
                                                                     </div>
 
@@ -236,7 +236,7 @@
                                                                             <div class="col-lg-4 col-sm-6">
                                                                                 <div class="single-info-input">
                                                                                     <label class="label_title">{{ __('Title') }} <span class="text-danger">*</span> </label>
-                                                                                    <input class="form--control" type="text" wire:model.defer="include_service_title.{{ $key }}" placeholder="{{__('Service title')}}">
+                                                                                    <input class="form--control" type="text" wire:model.defer="include_service_title.{{ $key }}" placeholder="{{__('Book Title')}}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="@if($online_offline_show_hide) d-none @endif col-lg-3 col-sm-6 is_service_online_hide">
@@ -316,7 +316,7 @@
                                                                 <div  class="col-xl-3 col-sm-6">
                                                                     <div class="single-info-input">
                                                                         <label class="label_title">{{ __('Title') }} <span class="text-danger">*</span> </label>
-                                                                        <input class="form--control" type="text"  wire:model.defer="additional_service_title.0"  placeholder="{{__('Service title')}}">
+                                                                        <input class="form--control" type="text"  wire:model.defer="additional_service_title.0"  placeholder="{{__('Book Title')}}">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xl-2 col-sm-6">
@@ -357,7 +357,7 @@
                                                                         <div  class="col-xl-3 col-sm-6">
                                                                             <div class="single-info-input">
                                                                                 <label class="label_title">{{ __('Title') }} <span class="text-danger">*</span> </label>
-                                                                                <input class="form--control" type="text"  wire:model.defer="additional_service_title.{{ $key }}"  placeholder="{{__('Service title')}}">
+                                                                                <input class="form--control" type="text"  wire:model.defer="additional_service_title.{{ $key }}"  placeholder="{{__('Book Title')}}">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-xl-2 col-sm-6">

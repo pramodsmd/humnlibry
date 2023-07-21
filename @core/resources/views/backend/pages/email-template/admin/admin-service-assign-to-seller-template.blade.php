@@ -32,7 +32,7 @@
                                     <label for="admin_service_assign_message">{{ __('Email Message') }}</label>
                                     <textarea class="form-control summernote" name="admin_service_assign_message">{{ get_static_option('admin_service_assign_message') ?? '' }} </textarea>
                                 </div>
-                                    <small class="form-text text-muted text-danger margin-top-20"><code>@service_id</code> {{__('will be replaced by dynamically with service id.')}}</small>
+                                    <small class="form-text text-muted text-danger margin-top-20"><code>@service_id</code> {{__('will be replaced by dynamically with Book ID.')}}</small>
                                 </div>
                             <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Update')}}</button>
                         </form>

@@ -28,8 +28,8 @@
                                 <tr>
                                     <td><strong>1</strong></td>
                                     <td>
-                                        {{__('Seller Buyer Register Template')}} <br>
-                                    <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Seller and Buyer Register.') }}</span>
+                                        {{__('Book Provider Reader Register Template')}} <br>
+                                    <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Book Provider and Reader Register.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.email.user.register.template')"/>
@@ -37,8 +37,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>2</strong></td>
-                                    <td>{{__('Seller Buyer Email Verify Template')}}<br>
-                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Seller and Buyer Register E-mail Verify.') }}</span>
+                                    <td>{{__('Book Provider Reader Email Verify Template')}}<br>
+                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Book Provider and Reader Register E-mail Verify.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.email.user.verify.template')"/>
@@ -46,8 +46,9 @@
                                 </tr>
                                 <tr>
                                     <td><strong>3</strong></td>
-                                    <td>{{__('New Service Approve Template')}}<br>
-                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Seller New Service Approval.') }}</span>
+                                    <td>{{__('New Book Approve Template
+')}}<br>
+                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Book Provider New Book Approval.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.seller.service.approve')"/>
@@ -55,8 +56,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>4</strong></td>
-                                    <td>{{__('Seller Report Template')}}<br>
-                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Seller Report.') }}</span>
+                                    <td>{{__('Book Provider Report Template')}}<br>
+                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Book Provider Report.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.seller.report')"/>
@@ -64,8 +65,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>5</strong></td>
-                                    <td>{{__('Seller Payout Request Template')}}<br>
-                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Seller Create Payout Request.') }}</span>
+                                    <td>{{__('Book Provider Payout Request Template')}}<br>
+                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Book Provider Create Payout Request.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.seller.payout.request')"/>
@@ -73,8 +74,9 @@
                                 </tr>
                                 <tr>
                                     <td><strong>6</strong></td>
-                                    <td>{{__('Seller Order Ticket Template')}}<br>
-                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Seller Order Ticket.') }}</span>
+                                    <td>{{__('Book Provider  Booking Ticket Template
+')}}<br>
+                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Book Provider Booking Ticket.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.seller.order.ticket')"/>
@@ -82,8 +84,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>7</strong></td>
-                                    <td>{{__('Seller Verification Request Template')}}<br>
-                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Seller Verification Request.') }}</span>
+                                    <td>{{__('Book Provider Verification Request Template')}}<br>
+                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Book Provider Verification Request.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.seller.verification')"/>
@@ -91,8 +93,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>8</strong></td>
-                                    <td>{{__('Seller Buyer Extra Service Template')}}<br>
-                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Seller and Buyer Extra Service.') }}</span>
+                                    <td>{{__('Book Provider Reader Extra Book Template')}}<br>
+                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Book Provider and Reader Extra Book.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.seller.extra.service')"/>
@@ -100,8 +102,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>9</strong></td>
-                                    <td>{{__('Buyer Order Decline Template')}}<br>
-                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Buyer Order Decline.') }}</span>
+                                    <td>{{__('Reader Booking Decline Template')}}<br>
+                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Reader Booking Decline.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.buyer.order.decline')"/>
@@ -109,8 +111,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>10</strong></td>
-                                    <td>{{__('Buyer Report Template')}} <br>
-                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __('For the Buyer Report.') }}</span>
+                                    <td>{{__('Reader Report Template')}} <br>
+                                        <span class="mt-2"><b class="text-info">{{__('Notes: ')}}</b> {{ __(' For the Reader Report.') }}</span>
                                     </td>
                                     <td>
                                         <x-edit-icon :url="route('admin.buyer.report')"/>

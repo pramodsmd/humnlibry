@@ -13,7 +13,7 @@
                 <!-- Report section start-->
                 <div class="dashboard_table__wrapper dashboard_border  padding-20 radius-10 bg-white">
                     <div class="dashboard_table__title__flex">
-                        <h4 class="dashboards-title"> {{ __('Decline History') }} <br> {{ __('Order ID:') }} <span class="text-info"> {{ $order_id }} </span></h4>
+                        <h4 class="dashboards-title"> {{ __('Decline History') }} <br> {{ __('Booking ID:') }} <span class="text-info"> {{ $order_id }} </span></h4>
                         <a class="btn btn-success" href="{{ route('buyer.orders') }}">{{__('Back To Orders')}}</a>
 
                     </div>

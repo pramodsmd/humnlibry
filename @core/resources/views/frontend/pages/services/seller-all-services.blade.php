@@ -2,7 +2,7 @@
 @extends('frontend.frontend-page-master')
 
 @section('page-meta-data')
-    <title>{{ __('Seller all Services')  }}</title>
+    <title>{{ __('Seller All Books')  }}</title>
 @endsection
 
 @section('page-title')
@@ -15,7 +15,7 @@
 @endsection 
 
 @section('inner-title')
-{{ __('Seller all Services')  }}
+{{ __('Seller All Books')  }}
 @endsection 
 
 @section('content')

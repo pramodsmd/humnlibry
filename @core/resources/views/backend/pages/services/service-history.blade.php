@@ -26,10 +26,10 @@
                         <div class="table-wrap table-responsive">
                             <table class="table table-default">
                                 <thead>
-                                <th>{{__('Service ID')}}</th>
+                                <th>{{__('Book ID')}}</th>
                                 <th>{{__('Seller Id')}}</th>
-                                <th>{{__('Service Title')}}</th>
-                                <th>{{__('Service Description')}}</th>
+                                <th>{{__('Book Title')}}</th>
+                                <th>{{__('Book Description')}}</th>
                                 </thead>
                                 <tbody>
                                 @foreach($service_histories as $data)
@@ -60,7 +60,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModal">{{ __('Service Details') }}</h5>
+                    <h5 class="modal-title" id="editModal">{{ __('Book Details') }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

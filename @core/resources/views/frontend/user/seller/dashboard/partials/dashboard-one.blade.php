@@ -130,7 +130,7 @@
                                     </div>
                                     <div class="contents">
                                         <h2 class="order-titles"> {{ $complete_order }} </h2>
-                                        <span class="order-para"> {{ __('Order Completed ') }}</span>
+                                        <span class="order-para"> {{ __('Booking Completed ') }}</span>
                                     </div>
                                 </div>
                             </div>

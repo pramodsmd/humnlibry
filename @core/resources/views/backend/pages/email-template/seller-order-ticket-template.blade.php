@@ -1,6 +1,7 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Seller Order Ticket Template')}}
+    {{__('Book Provider  Booking Ticket Template
+')}}
 @endsection
 @section('style')
     <x-media.css/>
@@ -18,7 +19,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="header-wrapp d-flex justify-content-between">
-                            <h4 class="header-title">{{__('Seller Order Ticket Template')}}</h4>
+                            <h4 class="header-title">{{__('Book Provider  Booking Ticket Template
+')}}</h4>
                             <a class="btn btn-info" href="{{route('admin.email.template.all')}}">{{__('All Email Templates')}}</a>
                         </div>
                         <form action="{{route('admin.seller.order.ticket')}}" method="post" enctype="multipart/form-data">

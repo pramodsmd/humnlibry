@@ -132,7 +132,7 @@
                                         </div>
                                         <div class="contents margin-top-10">
                                             <h3 class="title">@if(!empty($completed_order)){{ $completed_order }} @endif</h3>
-                                            <span class="ratings-span"> {{ __('Order Completed') }}</span>
+                                            <span class="ratings-span"> {{ __('Booking Completed') }}</span>
                                         </div>
                                     </div>
                                 </div>

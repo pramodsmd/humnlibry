@@ -153,14 +153,14 @@ $reg_type = request()->get('type') ?? 'buyer';
                                                     </select>
                                                 </div>
                                             </div>
-                                            <!--<div class="single-info-service margin-top-30 service_area_wrapper">-->
-                                            <!--    <div class="single-content">-->
-                                            <!--        <label class="forms-label"> {{ __('Service Area') }} <span class="text-danger seller_area_hide_show_req">*</span> </label>-->
-                                            <!--        <select name="service_area" id="service_area" class="get_service_area">-->
-                                            <!--            <option value="">{{ __('Select Area') }}</option>-->
-                                            <!--        </select>-->
-                                            <!--    </div>-->
-                                            <!--</div>-->
+                                            <div class="single-info-service margin-top-30 service_area_wrapper">
+                                               <div class="single-content">
+                                                   <label class="forms-label"> {{ __('Service Area') }} <span class="text-danger seller_area_hide_show_req">*</span> </label>
+                                                   <select name="service_area" id="service_area" class="get_service_area">
+                                                       <option value="">{{ __('Select Area') }}</option>
+                                                   </select>
+                                               </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <input type="button" name="next" class="next action-button" value="{{__('Next')}}" />

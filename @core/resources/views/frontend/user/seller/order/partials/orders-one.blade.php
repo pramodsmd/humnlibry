@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="dashboard-settings margin-top-40">
-                                    <h2 class="dashboards-title">{{ __('Order Status') }}</h2>
+                                    <h2 class="dashboards-title">{{ __('Booking Status') }}</h2>
                                 </div>
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                                         <table id="all_order_table" class="custom--table table-td-padding">
                                             <thead>
                                             <tr>
-                                                <th> {{ __('Order ID') }} </th>
-                                                <th> {{ __('Buyer Name') }} </th>
+                                                <th> {{ __('Booking ID') }} </th>
+                                                <th> {{ __('Reader Name') }} </th>
                                                 @if(request()->path() == 'seller/job-orders')
                                                     <!--job order title -->
                                                     <th> {{ __('Job Title') }} </th>
@@ -67,17 +67,17 @@
                                                 @endif
                                                 <th> {{ __('Order Pricing') }} </th>
                                                 <th> {{ __('Payment Details') }} </th>
-                                                <th> {{ __('Order Status') }} </th>
-                                                <th> {{ __('Order Type') }} </th>
-                                                <th> {{ __('Order Complete Request') }} </th>
+                                                <th> {{ __('Booking Status') }} </th>
+                                                <th> {{ __('Booking Type') }} </th>
+                                                <th> {{ __('Booking Complete Request') }} </th>
                                                 <th> {{ __('Action') }} </th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             @foreach ($all_orders as $order)
                                                 <tr>
-                                                    <td data-label="Order ID"> {{ $order->id }} </td>
-                                                    <td data-label="Buyer Name"> {{ $order->name }} </td>
+                                                    <td data-label="Booking ID"> {{ $order->id }} </td>
+                                                    <td data-label="Reader Name"> {{ $order->name }} </td>
 
                                                     <!--service and job order info -->
                                                     @if(request()->path() == 'seller/job-orders')
@@ -113,11 +113,11 @@
                                                         @endif
                                                     </td>
 
-                                                    @if ($order->status == 0) <td data-label="Order Status" class="pending"><span>{{ __('Pending') }}</span></td>@endif
-                                                    @if ($order->status == 1) <td data-label="Order Status" class="order-active"><span>{{ __('Active') }}</span></td>@endif
-                                                    @if ($order->status == 2) <td data-label="Order Status" class="completed"><span>{{ __('Completed') }}</span></td>@endif
-                                                    @if ($order->status == 3) <td data-label="Order Status" class="order-deliver"><span>{{ __('Delivered') }}</span></td>@endif
-                                                    @if ($order->status == 4) <td data-label="Order Status" class="canceled"><span>{{ __('Cancelled') }}</span></td>@endif
+                                                    @if ($order->status == 0) <td data-label="Booking Status" class="pending"><span>{{ __('Pending') }}</span></td>@endif
+                                                    @if ($order->status == 1) <td data-label="Booking Status" class="order-active"><span>{{ __('Active') }}</span></td>@endif
+                                                    @if ($order->status == 2) <td data-label="Booking Status" class="completed"><span>{{ __('Completed') }}</span></td>@endif
+                                                    @if ($order->status == 3) <td data-label="Booking Status" class="order-deliver"><span>{{ __('Delivered') }}</span></td>@endif
+                                                    @if ($order->status == 4) <td data-label="Booking Status" class="canceled"><span>{{ __('Cancelled') }}</span></td>@endif
 
                                                     <td data-label="Order Pricing">
                                                         @if($order->is_order_online==1)
@@ -126,7 +126,7 @@
                                                             <span class="btn btn-info">{{ __('Offline') }}</span>
                                                         @endif
                                                     </td>
-                                                    <td data-label="Order Status" >
+                                                    <td data-label="Booking Status" >
                                                         <span class="{{ in_array($order->order_complete_request,[0,1]) ? 'pending' : 'completed' }} d-block">
                                                             @if ( in_array($order->order_complete_request,[0,1]))
                                                                 @if($order->payment_status != 'pending')
@@ -269,7 +269,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModal">{{ __('Create Order Complete Request') }}</h5>
+                        <h5 class="modal-title" id="editModal">{{ __('Create Booking Complete Request') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

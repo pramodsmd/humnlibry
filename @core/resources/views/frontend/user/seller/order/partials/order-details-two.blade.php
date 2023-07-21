@@ -27,7 +27,7 @@
                                         <div class="line-charts-wrapper margin-top-40">
 
                                             <div class="line-top-contents mb-2">
-                                                <h4 class="earning-title">{{ __('Service Provider Details') }}</h4>
+                                                <h4 class="earning-title">{{ __('Book Provider Details') }}</h4>
                                             </div>
                                             <div class="single-checbox">
                                                 <div class="checkbox-inlines">
@@ -273,7 +273,7 @@
                                             <div class="single-flex-middle-inner">
                                                 <div class="line-charts-wrapper oreder_details_rtl margin-top-40">
                                                     <div class="line-top-contents">
-                                                        <h4 class="earning-title">{{ __('Extra Service Details') }}</h4>
+                                                        <h4 class="earning-title">{{ __('Extra Book Details') }}</h4>
                                                     </div>
                                                     <span class="info-text d-block mb-4">{{__('This is not included in the main service Booking calculation')}}</span>
                                                     <table class="table table-bordered">

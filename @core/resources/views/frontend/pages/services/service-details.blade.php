@@ -47,7 +47,7 @@
     </div>
 
 
-    <!-- Service Details area starts -->
+    <!-- Book Details area starts -->
     <section class="service-details-area padding-top-70 padding-bottom-100">
         <div class="container">
             <div class="row">
@@ -197,7 +197,7 @@
                                                 <h5 class="title"> <a href="{{ route('about.seller.profile',optional($service_details->seller)->username) }}"> {{ optional($service_details->seller)->name }} </a> </h5>
                                                 @if($completed_order >=1)
                                                     <div class="about-seller-list">
-                                                        <span class="icon">{{ __('Order Completed') }}</span>
+                                                        <span class="icon">{{ __('Booking Completed') }}</span>
                                                         <span class="reviews">({{ $completed_order }}) </span>
                                                     </div>
                                                 @endif
@@ -224,7 +224,7 @@
                                                     </li>
                                                 @endif
                                                 @if($completed_order>=1)
-                                                    <li class="box-list">{{ __('Order Completed') }}
+                                                    <li class="box-list">{{ __('Booking Completed') }}
                                                         <strong>
                                                             {{ $completed_order }}
                                                         </strong>
@@ -351,7 +351,7 @@
                     @if($another_service->count() > 0)
                         <div class="another-details-wrapper padding-top-100">
                             <div class="section-title-two">
-                                <h3 class="title">{{ get_static_option('service_details_another_service_title') ?? __('Another Service of this Seller') }}</h3>
+                                <h3 class="title">{{ get_static_option('service_details_another_service_title') ?? __('Another Book of this Seller') }}</h3>
                                 <a href="{{ route('seller.service.all',$service_details->seller_id) }}" class="section-btn">{{ get_static_option('service_details_explore_all_title') ?? __('Explore All') }}</a>
                             </div>
                             <div class="row padding-top-20">
@@ -423,7 +423,7 @@
                             <div class="details-available-price margin-top-20">
                                 <span class="summery-title">
                                     @if($service_details->is_service_online != 1)
-                                        <h6 class="tilte-available"> {{ get_static_option('service_details_package_subtitle') ?? __('Available Service Packages') }}</h6>
+                                        <h6 class="tilte-available"> {{ get_static_option('service_details_package_subtitle') ?? __('Available Book Packages') }}</h6>
                                     @else
                                         <ul class='onlilne-special-list'>
                                             <li><i class="las la-clock"></i> {{ __('Delivery Days').': '.$service_details->delivery_days }}</li>
@@ -450,7 +450,7 @@
                         <div class="order-pagkages">
                             @if($completed_order >=1)
                                 <span class="single-order"> <i class="las la-check"></i>
-                                {{ $completed_order }} {{ __('Order Completed') }}
+                                {{ $completed_order }} {{ __('Booking Completed') }}
                             </span>
                             @endif
                             @if($seller_rating_percentage_value >=1)
@@ -465,7 +465,7 @@
             </div>
         </div>
     </section>
-    <!-- Service Details area end -->
+    <!-- Book Details area end -->
 @endsection
 
 @section('scripts')

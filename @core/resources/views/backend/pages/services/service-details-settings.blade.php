@@ -17,7 +17,7 @@
                             @csrf
 
                             <div class="form-group">
-                                <label for="service_details_overview_title">{{__('Service Details Overview Title')}}</label>
+                                <label for="service_details_overview_title">{{__('Book Details Overview Title')}}</label>
                                 <input type="text" name="service_details_overview_title"  class="form-control" value="{{get_static_option('service_details_overview_title')}}" id="service_details_overview_title">
                             </div>
                             <div class="form-group">
@@ -37,7 +37,7 @@
                                 <input type="text" name="service_details_benifits_title"  class="form-control" value="{{get_static_option('service_details_benifits_title')}}" id="service_details_benifits_title">
                             </div>
                             <div class="form-group">
-                                <label for="service_details_another_service_title">{{__('Book Details Another Service Of This Seller')}}</label>
+                                <label for="service_details_another_service_title">{{__('Book Details Another Book of This Seller')}}</label>
                                 <input type="text" name="service_details_another_service_title"  class="form-control" value="{{get_static_option('service_details_another_service_title')}}" id="service_details_another_service_title">
                             </div>
                             <div class="form-group">

@@ -25,14 +25,14 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h5 class="header-title">{{__('All Services')}}  </h5>
+                                <h5 class="header-title">{{__('All Books')}}  </h5>
                                 @can('category-delete')
                                     <x-bulk-action/>
                                 @endcan
                             </div>
                             @can('category-create')
                                 <div class="right-content">
-                                    <a href="{{ route('admin.add.service')}}" class="btn btn-primary">{{__('Add New Service')}}</a>
+                                    <a href="{{ route('admin.add.service')}}" class="btn btn-primary">{{__('Add new book')}}</a>
                                 </div>
                             @endcan
                         </div>

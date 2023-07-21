@@ -43,8 +43,8 @@
 
                                                             <div class="col-lg-4 col-sm-6">
                                                                 <div class="single-info-input">
-                                                                    <label for="title" class="info-title"> {{__('Service Title')}} </label>
-                                                                    <input class="form--control" name="title" value="{{ request()->get('title') }}" type="text" placeholder="{{ __('Service Title') }}">
+                                                                    <label for="title" class="info-title"> {{__('Book Title')}} </label>
+                                                                    <input class="form--control" name="title" value="{{ request()->get('title') }}" type="text" placeholder="{{ __('Book Title') }}">
                                                                 </div>
                                                             </div>
 

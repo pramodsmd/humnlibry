@@ -53,7 +53,7 @@
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
                                 <h4 class="header-title">{{__('Book Create Settings')}} </h4>
-                                <p class="mb-3 text-info">{{ __('You can set the service provider create service status auto Approved/Pending from here.') }}</p>
+                                <p class="mb-3 text-info">{{ __('You can set the book provider create book status auto Approved/Pending from here.') }}</p>
                             </div>
                         </div>
                         <form action="{{route('admin.service.create.status.settings.update')}}" method="post">
@@ -88,7 +88,7 @@
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
                                 <h4 class="header-title">{{__('Service Update Settings')}} </h4>
-                                <p class="mb-3 text-info">{{ __('You can set the service provider update service status auto Approved/Pending from here.') }}</p>
+                                <p class="mb-3 text-info">{{ __('You can set the book provider update book status auto Approved/Pending from here.') }}</p>
                             </div>
                         </div>
                         <form action="{{route('admin.service.edit.status.settings.update')}}" method="post">

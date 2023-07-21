@@ -36,9 +36,9 @@
                                     <label for="buyer_to_seller_extra_service_message">{{ __('Email Message For Seller') }}</label>
                                     <textarea class="form-control summernote" name="buyer_to_seller_extra_service_message">{!! get_static_option('buyer_to_seller_extra_service_message') ?? '' !!} </textarea>
                                 </div>
-                                <small class="form-text text-muted text-danger"><code>@order_id</code> {{__('will be replaced by dynamically with order id.')}}</small>
+                                <small class="form-text text-muted text-danger"><code>@order_id</code> {{__('will be replaced by dynamically with Booking ID.')}}</small>
                                 <small class="form-text text-muted text-danger"><code>@seller_name</code> {{__('will be replaced by dynamically with seller name.')}}</small>
-                                <small class="form-text text-muted text-danger"><code>@buyer_name</code> {{__('will be replaced by dynamically with buyer name.')}}</small>
+                                <small class="form-text text-muted text-danger"><code>@buyer_name</code> {{__('will be replaced by dynamically with Reader Name.')}}</small>
                             </div>
                             <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Update')}}</button>
                         </form>

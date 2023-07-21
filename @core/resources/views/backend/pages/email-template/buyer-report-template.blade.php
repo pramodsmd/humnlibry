@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Buyer Report Template')}}
+    {{__('Reader Report Template')}}
 @endsection
 @section('style')
     <x-media.css/>
@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="header-wrapp d-flex justify-content-between">
-                            <h4 class="header-title">{{__('Buyer Report Template')}}</h4>
+                            <h4 class="header-title">{{__('Reader Report Template')}}</h4>
                             <a class="btn btn-info" href="{{route('admin.email.template.all')}}">{{__('All Email Templates')}}</a>
                         </div>
                         <form action="{{route('admin.buyer.report')}}" method="post" enctype="multipart/form-data">

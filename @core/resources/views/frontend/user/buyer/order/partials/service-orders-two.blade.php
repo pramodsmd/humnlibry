@@ -100,8 +100,8 @@
                                                                         <label for="job_title" class="info-title"> {{__('Job Title')}} </label>
                                                                         <input class="form--control" name="job_title" value="{{ request()->get('job_title') }}" type="text" placeholder="{{ __('Job Title') }}">
                                                                     @else
-                                                                        <label for="service_title" class="info-title"> {{__('Service Title')}} </label>
-                                                                        <input class="form--control" name="service_title" value="{{ request()->get('service_title') }}" type="text" placeholder="{{ __('Service Title') }}">
+                                                                        <label for="service_title" class="info-title"> {{__('Book Title')}} </label>
+                                                                        <input class="form--control" name="service_title" value="{{ request()->get('service_title') }}" type="text" placeholder="{{ __('Book Title') }}">
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -195,7 +195,7 @@
                                                 @endif
                                                 <span class="dashboard_table__main__order__contents__subtitle mt-2">
                                                     <a href="javascript:void(0)" class="dashboard_table__main__order__contents__id"> <strong class="text-dark">{{ __('Booking ID:') }}</strong> {{ $order->id }}</a> ,
-                                                    <a href="javascript:void(0)" class="dashboard_table__main__order__contents__author"> <strong class="text-dark">{{ __('Service Provider Name:') }}</strong>{{ optional($order->seller)->name }} </a>
+                                                    <a href="javascript:void(0)" class="dashboard_table__main__order__contents__author"> <strong class="text-dark">{{ __('book provider Name:') }}</strong>{{ optional($order->seller)->name }} </a>
                                                 </span>
                                                 <span><strong>{{ __('Booking Date:') }}</strong>  {{ Carbon\Carbon::parse( strtotime($order->created_at))->format('d/m/y') }}</span>
                                             </div>
@@ -250,7 +250,7 @@
                                 </td>
                                 <!-- payment status end -->
 
-                                <!-- order complete request start-->
+                                <!-- Booking Complete request start-->
                                 @if ($order->order_complete_request == 0)
                                     <td class="pending"><span class="mx-4">{{ __('No Request Created') }}</span></td>
                                 @endif
@@ -310,9 +310,9 @@
                                     </td>
 
                                 @endif
-                                <!-- order complete request end-->
+                                <!-- Booking Complete request end-->
 
-                                <!-- Order status start -->
+                                <!-- Booking Status start -->
                                 <td>
                                    @if ($order->status == 0)<div class="dashboard_table__main__priority"><a href="javascript:void(0)" class="priorityBtn pending">{{ __('Pending') }}</a> </div> @endif
                                    @if ($order->status == 1)<div class="dashboard_table__main__priority"><a href="javascript:void(0)" class="priorityBtn active">{{ __('Active') }}</a> </div> @endif
@@ -320,7 +320,7 @@
                                    @if ($order->status == 3)<div class="dashboard_table__main__priority"><a href="javascript:void(0)" class="priorityBtn delivered">{{ __('Delivered') }}</a> </div> @endif
                                    @if ($order->status == 4)<div class="dashboard_table__main__priority"><a href="javascript:void(0)" class="priorityBtn cancel">{{ __('Cancel') }}</a> </div> @endif
                                 </td>
-                                <!-- Order status end -->
+                                <!-- Booking Status end -->
                                 <td>
 
                                     <div class="dashboard_recentOrder__item__icon">

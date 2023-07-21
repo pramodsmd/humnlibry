@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="dashboard-settings margin-top-40">
-                                <h2 class="dashboards-title">{{ __('Order Status') }}</h2>
+                                <h2 class="dashboards-title">{{ __('Booking Status') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -39,8 +39,8 @@
                                     <table id="complete_order_table" class="custom--table">
                                         <thead>
                                             <tr>
-                                                <th> {{ __('Order ID') }} </th>
-                                                <th> {{ __('Buyer Name') }} </th>
+                                                <th> {{ __('Booking ID') }} </th>
+                                                <th> {{ __('Reader Name') }} </th>
                                                 @if(request()->path() == 'seller/orders/job/complete-orders')
                                                     <!--job order title -->
                                                     <th> {{ __('Job Title') }} </th>
@@ -51,7 +51,7 @@
                                                     <th> {{ __('Service Time') }} </th>
                                                 @endif
                                                 <th> {{ __('Order Pricing') }} </th>
-                                                <th> {{ __('Order Status') }} </th>
+                                                <th> {{ __('Booking Status') }} </th>
                                                 <th> {{ __('Action') }} </th>
 
                                             </tr>
@@ -59,8 +59,8 @@
                                         <tbody>
                                             @foreach ($complete_orders as $order)
                                                 <tr>
-                                                    <td data-label="{{ __('Order ID') }}"> {{ $order->id }} </td>
-                                                    <td data-label="{{ __('Buyer Name') }}"> {{ $order->name }} </td>
+                                                    <td data-label="{{ __('Booking ID') }}"> {{ $order->id }} </td>
+                                                    <td data-label="{{ __('Reader Name') }}"> {{ $order->name }} </td>
 
                                                     <!--service and job order info -->
                                                     @if(request()->path() == 'seller/orders/job/complete-orders')
@@ -78,7 +78,7 @@
                                                     @endif
 
                                                     <td data-label="{{ __('Order Pricing') }}"> {{ float_amount_with_currency_symbol($order->total) }}</td>
-                                                    @if ($order->status == 2) <td class="completed" data-label="{{ __('Order Status') }}"><span>{{ __('Completed') }}</span></td>@endif
+                                                    @if ($order->status == 2) <td class="completed" data-label="{{ __('Booking Status') }}"><span>{{ __('Completed') }}</span></td>@endif
                                                     <td data-label="{{ __('Action') }}">
                                                         <a href="{{ route('seller.order.details', $order->id) }}">
                                                             <span class="icon eye-icon" data-toggle="tooltip" data-placement="top" title="{{ __('View Details') }}">

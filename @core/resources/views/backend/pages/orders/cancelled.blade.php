@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Cancelled Orders')}}
+    {{__('Cancelled Bookings')}}
 @endsection
 
 @section('style')
@@ -20,23 +20,23 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('Cancelled Orders')}}  </h4>
-                                <small class="text-danger">{{ __('If a order payment is completed and the order is cancelled without completing then admin can change the return money status here.') }}</small>
+                                <h4 class="header-title">{{__('Cancelled Bookings')}}  </h4>
+                                <small class="text-danger">{{ __('If a booking payment is completed and the booking is cancelled without completing then admin can change the return money status here.') }}</small>
                             </div>
                         </div>
                         <div class="table-wrap table-responsive">
                             <table class="table table-default">
                                 <thead>
                                 <th>{{__('ID')}}</th>
-                                <th>{{__('Buyer Name')}}</th>
-                                <th>{{__('Buyer Email')}}</th>
-                                <th>{{__('Buyer Phone')}}</th>
-                                <th>{{__('Buyer Address')}}</th>
+                                <th>{{__('Reader Name')}}</th>
+                                <th>{{__('Reader Email')}}</th>
+                                <th>{{__('Reader Phone')}}</th>
+                                <th>{{__('Reader Address')}}</th>
                                 <th>{{__('Total Amount')}}</th>
                                 <th>{{__('Payment Status')}}</th>
                                 <th>{{__('Create Date')}}</th>
                                 <th>{{__('Money Return')}}</th>
-                                <th>{{__('Order Details')}}</th>
+                                <th>{{__('Booking Details')}}</th>
                                 </thead>
                                 <tbody>
                                     @foreach($orders as $data)

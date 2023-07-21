@@ -1,6 +1,7 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('New Service Approve Template')}}
+    {{__('New Book Approve Template
+')}}
 @endsection
 @section('style')
     <x-media.css/>
@@ -18,7 +19,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="header-wrapp d-flex justify-content-between">
-                            <h4 class="header-title">{{__('New Service Approve Template')}}</h4>
+                            <h4 class="header-title">{{__('New Book Approve Template
+')}}</h4>
                             <a class="btn btn-info" href="{{route('admin.email.template.all')}}">{{__('All Email Templates')}}</a>
                         </div>
                         <form action="{{route('admin.seller.service.approve')}}" method="post" enctype="multipart/form-data">
@@ -32,7 +34,7 @@
                                     <label for="user_register_message">{{ __('Email Message') }}</label>
                                     <textarea class="form-control summernote" name="service_approve_message">{!! get_static_option('service_approve_message') ?? '' !!} </textarea>
                                 </div>
-                                    <small class="form-text text-muted text-danger"><code>@service_id</code> {{__('will be replaced by dynamically with service id.')}}</small>
+                                    <small class="form-text text-muted text-danger"><code>@service_id</code> {{__('will be replaced by dynamically with Book ID.')}}</small>
                                 </div>
                             <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Update')}}</button>
                         </form>
