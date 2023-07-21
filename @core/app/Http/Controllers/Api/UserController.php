@@ -249,7 +249,7 @@ class UserController extends Controller
             'amount' => $amount,
             'type'   =>'send',
             'sender_receiver_id'=>$receiver_details->id,
-            'payment_gateway' => "",
+            'payment_gateway' => "wallet",
             'remarks'=>$request->remarks,
             'payment_status' => 'complete',
             'status' => 1
@@ -260,7 +260,7 @@ class UserController extends Controller
             'type'   =>'received',
             "remarks"=>$request->remarks,
             'sender_receiver_id'=>$sender_id,
-            'payment_gateway' => "",
+            'payment_gateway' => "wallet",
             'payment_status' => 'complete',
             'status' => 1
         ]);

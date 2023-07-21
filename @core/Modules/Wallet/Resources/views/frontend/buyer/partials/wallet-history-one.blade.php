@@ -82,7 +82,13 @@
                                         @foreach($wallet_histories as $history)
                                             <tr>
                                                 <td data-label="{{ __('ID') }}">{{ $history->id }} </td>
-                                                <td data-label="{{ __('Payment Gateway') }}">{{ $history->payment_gateway }}</td>
+                                                <td data-label="{{ __('Payment Gateway') }}">
+                                                    @if($history->payment_gateway=='stripe')
+                                                    {{__('Debit/Credit Card')}}
+                                                    @else
+                                                    {{ $history->payment_gateway }}
+                                                    @endif  
+                                                </td>
                                                 <td data-label="{{ __('Payment Status') }}">{{ $history->payment_status }}</td>
                                                 <td data-label="{{ __('Request Amount') }}"> {{ float_amount_with_currency_symbol($history->amount) }} </td>
                                                 <td data-label="{{ __('Request Date') }}">{{ $history->created_at->diffForHumans() }} </td>

@@ -132,7 +132,12 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="dashboard_table__main__paymentGateway">{{ $history->payment_gateway }}</div>
+                                    <div class="dashboard_table__main__paymentGateway">
+                                    @if($history->payment_gateway=='stripe')
+                                                    {{__('Debit/Credit Card')}}
+                                                    @else
+                                                    {{ $history->payment_gateway }}
+                                                    @endif                                      </div>
                                 </td>
                                 <td>
                                     <div class="dashboard_table__main__priority">

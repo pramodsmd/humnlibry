@@ -50,7 +50,12 @@
                                                 <li><strong>{{__('Phone')}}: </strong>{{ optional($data->user)->phone }}</li>
                                             </ul>
                                         </td>
-                                        <td>{{ ucfirst($data->payment_gateway) }}</td>
+                                        <td>
+ @if($data->payment_gateway=='stripe')
+                                                    {{__('Debit/Credit Card')}}
+                                                    @else
+                                                    {{ $data->payment_gateway }}
+                                                    @endif                                          </td>
                                         <td>
                                             {{ ucfirst($data->payment_status) }}
                                             @if($data->payment_status == 'pending')
