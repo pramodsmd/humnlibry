@@ -185,6 +185,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'amount' => 'required',
             'receiver' => 'required',
+            'remarks' =>'required',
         ]); 
         if($validator->fails()) {
              return response()->json([
@@ -249,6 +250,7 @@ class UserController extends Controller
             'type'   =>'send',
             'sender_receiver_id'=>$receiver_details->id,
             'payment_gateway' => "",
+            'remarks'=>$request->remarks,
             'payment_status' => 'complete',
             'status' => 1
         ]);
@@ -256,6 +258,7 @@ class UserController extends Controller
             $user_column => $receiver_details->id,
             'amount' => $amount,
             'type'   =>'received',
+            "remarks"=>$request->remarks,
             'sender_receiver_id'=>$sender_id,
             'payment_gateway' => "",
             'payment_status' => 'complete',

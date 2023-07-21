@@ -10,7 +10,7 @@ class WalletHistory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['buyer_id','payment_gateway','payment_status','amount','transaction_id','type','sender_receiver_id','manual_payment_image','status'];
+    protected $fillable = ['buyer_id','payment_gateway','payment_status','amount','transaction_id','type','sender_receiver_id','remarks','manual_payment_image','status'];
 
     public function user()
     {
