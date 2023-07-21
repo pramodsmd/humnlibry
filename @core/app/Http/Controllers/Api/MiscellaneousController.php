@@ -120,9 +120,7 @@ class MiscellaneousController extends Controller
      
    public function Notification(Request $request){
        $data=[];
-       $data['id']=$id=auth("sanctum")->user()->id;
-           
-       
+       $data['id']=$id=auth("sanctum")->user()->id;      
 
        $validator = Validator::make($data, [
         'id' => 'required',     
@@ -136,34 +134,40 @@ class MiscellaneousController extends Controller
     }
     $notificationcount=0;
     $notificationlist=[];
+    $notificationlist_final=[];
     $details=auth("sanctum")->user();
-       $user_type=$details->user_type;
+    $user_type=$details->user_type;
     $notifications= DB::table('notifications')->latest()->select(['id','data','buyer_status','read_at'])->get();
 
       foreach($notifications as $key=>$notification){
         $data=json_decode($notification->data);
          if(isset($data->buyer_id) && $user_type==1){
                  if($data->buyer_id==$id){
-                       array_push($notificationlist,$notification);
-                     
+                       $notificationlist['id']=$notification->id;
+                       $notificationlist['data']=$data->order_message??'';
+                       $notificationlist['buyer_status']=$notification->buyer_status;
+                       $notificationlist['read_at']=$notification->read_at;  
+                       array_push($notificationlist_final,$notificationlist);                   
                        if($notification->buyer_status==null){
                            $notificationcount++; 
                        }
-
-                 }
-           }else{
+                    }
+             }else{
             if($data->seller_id==$id){
-                array_push($notificationlist,$notification);
-
+                $notificationlist['id']=$notification->id;
+                $notificationlist['data']=$data->order_message??'';
+                $notificationlist['buyer_status']=$notification->buyer_status;
+                $notificationlist['read_at']=$notification->read_at;
+                array_push($notificationlist_final,$notificationlist);
                 if($notification->read_at==null){
-                    $notificationcount++;   
-
-                   }          }
-           }
+                    $notificationcount++; 
+                   }    
+                }
+             }
         }
         return response()->success([
             'un_read_notification'=>$notificationcount,
-            'notification'=>$notificationlist,
+            'notification'=>$notificationlist_final,
         ]);
 
    }
