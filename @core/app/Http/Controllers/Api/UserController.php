@@ -81,6 +81,13 @@ class UserController extends Controller
             ->whereIn('payment_status',['complete','pending'])
             ->where([$user_column => $buyer_id])->get();
         if (!is_null($wallet_history)){
+            foreach($wallet_history as $wallets){
+                if($wallets->payment_gateway=='stripe'){
+                    $wallets->payment_gateway='Debit/Credit card';
+                }
+            }
+
+
             return response([
                 'history' => $wallet_history
             ],200);
