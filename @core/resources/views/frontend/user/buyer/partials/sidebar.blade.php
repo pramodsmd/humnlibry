@@ -51,9 +51,9 @@
                 <li class="list @if(request()->is('buyer/all-tickets*')) active @endif">
                     <a href="{{ route('buyer.support.ticket') }}"> <i class="lar la-star"></i>{{ __('Support Ticket') }}</a>
                 </li>
-                <li class="list @if(request()->is('buyer/report/list*')) active @endif">
+                <!-- <li class="list @if(request()->is('buyer/report/list*')) active @endif">
                     <a href="{{ route('buyer.order.report.list')}}"> <i class="las la-file-alt"></i> {{__('Reports List')}} </a>
-                </li>
+                </li> -->
                 <li class="list @if(request()->is('buyer/profile*')) active @endif">
                     <a href="{{ route('buyer.profile')}}"> <i class="las la-user"></i> {{__('Profile')}} </a>
                 </li>

@@ -43,9 +43,9 @@
                     <a href="{{ route('buyer.support.ticket') }}"><i class="las la-ticket-alt"></i> {{ __('Support Ticket') }}</a>
                 </li>
 
-                <li class="dashboard__bottom__list__item @if(request()->is('buyer/order/report/list*')) active @endif">
+                <!-- <li class="dashboard__bottom__list__item @if(request()->is('buyer/order/report/list*')) active @endif">
                     <a href="{{ route('buyer.order.report.list')}}"> <i class="las la-file-alt"></i> {{__('Reports List')}} </a>
-                </li>
+                </li> -->
 
 
                 @if(moduleExists('Wallet'))

@@ -102,9 +102,9 @@
                 <li class="list @if(request()->is('seller/all-tickets*')) active @endif">
                     <a href="{{ route('seller.support.ticket') }}"> <i class="las la-headset"></i>{{ __('Support Ticket') }}</a>
                 </li>
-                <li class="list @if(request()->is('seller/report/list*')) active @endif">
+                <!-- <li class="list @if(request()->is('seller/report/list*')) active @endif">
                     <a href="{{ route('seller.order.report.list')}}"> <i class="las la-user"></i> {{__('Reports List')}} </a>
-                </li>
+                </li> -->
                 <li class="list @if(request()->is('seller/to-do-list*')) active @endif">
                     <a href="{{ route('seller.todolist') }}"> <i class="las la-list"></i>{{ __('Todo List') }}</a>
                 </li>
