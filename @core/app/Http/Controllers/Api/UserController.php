@@ -832,6 +832,10 @@ class UserController extends Controller
 
         $orderInfo = Order::where('id',$request->id)->first();
         $orderInfo->payment_status = !empty($orderInfo->payment_status) ? $orderInfo->payment_status : 'pending';
+        if(!empty($orderInfo->payment_gateway) &&  $orderInfo->payment_gateway=="stripe" ){
+            $orderInfo['payment_gateway']="debit/Credit card";
+        } 
+
         $orderInfo->total = amount_with_currency_symbol($orderInfo->total);
         $orderInfo->tax = amount_with_currency_symbol($orderInfo->tax);
         $orderInfo->sub_total = amount_with_currency_symbol($orderInfo->sub_total);
