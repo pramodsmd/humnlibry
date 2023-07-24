@@ -110,7 +110,7 @@
                                                     </li>
                                                 @endif
                                                 
-                                                 @if($notification->data['order_id']==null)
+                                                 @if($notification->data['order_id']??null==null)
                                                     <li class="dashboard__header__notification__wrap__list__item">
                                                         <div class="dashboard__header__notification__wrap__list__flex">
                                                             <a class="dashboard__header__notification__wrap__list__contents__title"

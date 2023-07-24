@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Seller Details')}}
+    {{__('Reader Details')}}
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="checkbox-inlines">
-                                <label><strong>{{ __('Book Provider ID:') }} </strong>#{{ $seller_details->id }}</label>
+                                <label><strong>{{ __('Reader ID:') }} </strong>#{{ $seller_details->id }}</label>
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                         <div class="card-body">
 
                             <div class="border-bottom mb-3">
-                                <h5>{{ __('Book Provider Details') }}</h5>
+                                <h5>{{ __('Reader Details') }}</h5>
                             </div>
                             <div class="single-checbox">
                                 <div class="checkbox-inlines">
@@ -71,7 +71,7 @@
                         <div class="card-body">
 
                             <div class="border-bottom mb-3">
-                                <h5>{{ __('Book Provider National ID') }}</h5>
+                                <h5>{{ __('Reader National ID') }}</h5>
                             </div>
                             <div class="single-checbox">
                                 <div class="checkbox-inlines">
@@ -80,7 +80,7 @@
                             </div>   
                             
                             <div class="border-bottom mt-5 mb-3">
-                                <h5>{{ __('Book Provider Address') }}</h5>
+                                <h5>{{ __('Reader Address') }}</h5>
                             </div>
                             <div class="single-checbox">
                                 <div class="checkbox-inlines">

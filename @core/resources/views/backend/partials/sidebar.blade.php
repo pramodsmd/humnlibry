@@ -279,6 +279,11 @@
                                                 <a href="{{ route('admin.wallet.lists') }}">{{ __('Wallet Lists') }}</a>
                                             </li>
                                         @endcan
+                                        @can('wallet-setting')
+                                            <li class="{{ active_menu('admin-home/wallet/setting') }} @if (request()->is('admin-home/wallet/history/setting')) active @endif">
+                                                <a href="{{ route('admin.wallet.setting') }}">{{ __('Wallet Setting') }}</a>
+                                            </li>
+                                        @endcan
                                         @can('wallet-history')
                                             <li class="{{ active_menu('admin-home/wallet/history/records') }} @if (request()->is('admin-home/wallet/history/records')) active @endif">
                                                 <a href="{{ route('admin.wallet.history') }}">{{ __('Wallet History') }}</a>

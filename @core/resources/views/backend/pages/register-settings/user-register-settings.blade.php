@@ -18,8 +18,8 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('Seller Register Settings')}} </h4>
-                                <p class="mb-3 text-info">{{__('You can set the seller register on/off  and Service Area field required from here.')}}</p>
+                                <h4 class="header-title">{{__('book provider register Settings')}} </h4>
+                                <p class="mb-3 text-info">{{__('You can set the book provider register on/off  and Service Area field required from here.')}}</p>
                             </div>
                         </div>
                         <div class="table-wrap table-responsive">
@@ -27,7 +27,7 @@
                             <form action="{{ route('admin.seller.register.settings.update') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="commission_charge">{{ __('Seller Register On/Off') }}</label>
+                                    <label for="commission_charge">{{ __('book provider register On/Off') }}</label>
                                     <select name="seller_register_on_off" id="seller_register_on_off" class="form-control">
                                         <option value="on" {{ get_static_option('seller_register_on_off')=== 'on'? 'selected': '' }}>{{ __('On') }}</option>
                                         <option value="off" {{ get_static_option('seller_register_on_off')=== 'off' ? 'selected': '' }} >{{ __('Off') }}</option>
@@ -56,15 +56,15 @@
                     <div class="card-body">
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
-                                <h4 class="header-title">{{__('Buyer Register Settings')}} </h4>
-                                <p class="mb-3 text-info">{{__('You can set the buyer register on/off from here.')}}</p>
+                                <h4 class="header-title">{{__('reader register Settings')}} </h4>
+                                <p class="mb-3 text-info">{{__('You can set the reader register on/off from here.')}}</p>
                             </div>
                         </div>
                         <div class="table-wrap table-responsive">
                             <form action="{{ route('admin.buyer.register.settings.update') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="commission_charge">{{ __('Buyer Register On/Off') }}</label>
+                                    <label for="commission_charge">{{ __('reader register On/Off') }}</label>
                                     <select name="buyer_register_on_off" id="buyer_register_on_off" class="form-control">
                                         <option value="on" {{ get_static_option('buyer_register_on_off')=== 'on'? 'selected' :'' }} >{{ __('On') }}</option>
                                         <option value="off" {{ get_static_option('buyer_register_on_off')=== 'off'? 'selected' :'' }}>{{ __('Off') }}</option>
@@ -87,7 +87,7 @@
                         <div class="header-wrap d-flex justify-content-between">
                             <div class="left-content">
                                 <h4 class="header-title">{{__('Register Notice')}} </h4>
-                                <p class="mb-3 text-info">{{__('This notice will show in register page only if the seller and buyer registration off.')}}</p>
+                                <p class="mb-3 text-info">{{__('This notice will show in register page only if the book provider and reader registration off.')}}</p>
                             </div>
                         </div>
                         <div class="table-wrap table-responsive">

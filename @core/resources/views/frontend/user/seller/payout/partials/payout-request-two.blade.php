@@ -99,7 +99,7 @@
                             <div class="dashboard_promo bg-white">
                                 <div class="dashboard_promo__flex">
                                     <div class="dashboard_promo__contents">
-                                        <span class="dashboard_promo__subtitle">{{ __('Order Pending') }}</span>
+                                        <span class="dashboard_promo__subtitle">{{ __('Booking Pending') }}</span>
                                         <h4 class="dashboard_promo__title mt-2">{{ $pending_order }}</h4>
                                     </div>
                                     <div class="dashboard_promo__icon">
@@ -258,6 +258,7 @@
                             <label for="amount" class="label_title">{{ __('Amount') }} <span class="text-danger">*</span> </label>
                             <input type="number" class="form-control" name="amount" id="amount" placeholder="{{ __('amount') }}">
                         </div>
+                        <span class="calculated_value text-success"></span>
                         <div class="form-group mt-2">
                             <label for="payment_gateway" class="label_title">{{ __('Payment Gateway') }}</label>
                             <select name="payment_gateway" id="payment_gateway" class="form-control nice-select">
@@ -282,7 +283,12 @@
                         </div>
                         <div class="form-group">
                             <label class="payout-request-note d-block pt-4 label_title" for="amount">{{ __('Note (your payment account details)') }}</label>
-                            @php $amount_settings = App\AmountSettings::first(); @endphp
+                            @php
+                                  $amount_settings = App\AmountSettings::where('type','payout_request')->first();
+                                    $charge_percent=$amount_settings->charge_percent;
+                                    $fix_charge=$amount_settings->fix_charge;
+
+                            @endphp
                             <small class="text-danger margin-bottom-10 d-block">{{sprintf(__('You can make a request only if your remaining balance in a range set by the site admin. Like admin set minimum request amount %1$s and maximum request amount %2$s. than you can request a payment between %1$s to %2$s.'),$amount_settings->min_amount,$amount_settings->max_amount)}}</small>
                             <textarea class="form-control mt-3" name="seller_note" id="seller_note" cols="30" rows="7" placeholder="{{ __('note') }}"></textarea>
                         </div>
@@ -305,6 +311,15 @@
             "use strict";
             $(document).ready(function() {
 
+                $("#amount").keyup(function(){
+                    var total_amount= $("#amount").val();                       
+                    var charge_percent="<?php  echo $charge_percent;?>";
+                    var fix_charge="<?php echo $fix_charge ?>";
+                    var provider_get=total_amount-(total_amount*charge_percent)/100-fix_charge;
+                    var total_charge=charge_percent+fix_charge;
+                    var message='Fee: $'+parseFloat(total_charge).toFixed(2)+ ' (Amount you will receive: $'+parseFloat(provider_get).toFixed(2)+')';
+                    $(".calculated_value").text(message);
+                });
                 // search select2
                 $('#payment_gateway').select2({
                     dropdownParent: $('#payoutRequestModal')

@@ -27,7 +27,7 @@
                             <table class="table table-default">
                                 <thead>
                                 <th>{{__('Book ID')}}</th>
-                                <th>{{__('Seller Id')}}</th>
+                                <th>{{__('Book Provider ID')}}</th>
                                 <th>{{__('Book Title')}}</th>
                                 <th>{{__('Book Description')}}</th>
                                 </thead>
