@@ -34,7 +34,9 @@ Route::group(['prefix'=>'v1', 'middleware' => 'setlang'],function(){
     Route::get('/module-permission',[MiscellaneousController::class,'modulePermission']);
     Route::get('/admin-commission-type',[MiscellaneousController::class,'adminCommissionType']);
     Route::post('/account-delete',[MiscellaneousController::class,'accountDelete'])->middleware('auth:sanctum');
-    
+  //wallet charges settings
+    Route::get('/wallet-charges', [UserController::class, 'WalletCharges']);      
+
     //notification list
     Route::get('/notification',[MiscellaneousController::class,'Notification']);
 
@@ -61,7 +63,7 @@ Route::group(['prefix'=>'v1', 'middleware' => 'setlang'],function(){
     Route::post('/send-otp-in-mail',[UserController::class,'sendOTP']);
     Route::post('/reset-password',[UserController::class,'resetPassword']);
     
-    //services list by seller id
+    //services list by Book Provider ID
     Route::get("services-by-seller-id",[SellerController::class,"servicesListBySellerID"]);
    
     /*--------------------------

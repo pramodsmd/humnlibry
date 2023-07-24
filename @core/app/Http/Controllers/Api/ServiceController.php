@@ -654,7 +654,7 @@ class ServiceController extends Controller
 
         if (empty($request->seller_id)){
             return response()->error([
-                'message'=>__('Seller Id missing, please try another seller services'),
+                'message'=>__('Book Provider ID missing, please try another seller services'),
             ]);
         }
 

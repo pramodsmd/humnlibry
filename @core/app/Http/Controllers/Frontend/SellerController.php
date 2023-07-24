@@ -2715,7 +2715,7 @@ class SellerController extends Controller
                 $total = $additional_service_cost + $tax_amount;
                 $orderDetails->total += $total;
                 $orderDetails->save();
-                //todo send mail to seller and buyer
+                //todo send mail to book provider and reader
                 try {
                     //send mail to seller
                     $seller_details = User::select('name','email')->find($orderDetails->seller_id);

@@ -25,6 +25,7 @@ use App\OrderCompleteDecline;
 use Modules\Wallet\Entities\Wallet;
 use Modules\Wallet\Entities\WalletHistory;
 use Illuminate\Support\Facades\Validator;
+use App\AmountSettings;
 
 class UserController extends Controller
 {
@@ -41,6 +42,17 @@ class UserController extends Controller
         }
         return response(['msg' => __('wallet not found')],422);
     }
+    public function WalletCharges(Request $request){
+         
+        $wallet_settings =AmountSettings::select(['min_amount','max_amount','charge_percent','fix_charge','type'])->get();
+        return response([
+            'wallet_settings' => $wallet_settings,
+            'msg' => $wallet_settings
+        ],200);
+
+    }
+
+    
     public function walletDeduct(Request $request){
         
         $request->validate([
@@ -135,7 +147,7 @@ class UserController extends Controller
             Wallet::create([
                 $user_column => $buyer_id,
                 'balance' => 0,
-                'status' => 0,
+                'status' => 1,
             ]);
         }
 
@@ -439,19 +451,26 @@ class UserController extends Controller
 
     //register api
     public function register(Request $request)
-    {
+    { 
 
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'name' => 'required|max:191',
             'email' => 'required|email|unique:users|max:191',
             'username' => 'required|unique:users|max:191',
             'phone' => 'required|max:191',
             'password' => 'required|min:6|max:191',
             'service_city' => 'required',
-            'service_area' => 'required',
+            // 'service_area' => 'required',
             'country_id' => 'required',
             'terms_conditions' => 'required',
         ]);
+        if($validator->fails()) {
+            return response()->json([
+               'error' => true,
+               'message' => $validator->errors()
+           ],400);
+       }
+
         if (!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
             return response()->error([
                 'message' => __('invalid Email'),
@@ -471,12 +490,21 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'service_city' => $request->service_city,
             'state' => $request->service_city,
-            'service_area' => $request->service_area,
+            // 'service_area' => $request->service_area,
             'country_code' => $request->country_code,
             'country_id' => $request->country_id,
             'user_type' => $user_type,
             'terms_condition' => 1,
         ]);
+        
+            if(!is_null($user)){
+            Wallet::create([
+            'buyer_id' =>$user->id,
+            'balance' => 0,
+            'status' =>1,
+            ]);
+            }
+
         if (!is_null($user)) {
             $token = $user->createToken(Str::slug(get_static_option('site_title', 'qixer')) . 'api_keys')->plainTextToken;
             return response()->success([
@@ -901,7 +929,7 @@ class UserController extends Controller
             ]);
 
 
-            //todo send mail to seller and buyer
+            //todo send mail to book provider and reader
             try {
                 //send mail to seller
                 $seller_details = User::select('name','email')->find(optional($extra_service_details->order)->seller_id);
@@ -970,7 +998,7 @@ class UserController extends Controller
         $extra_service_details->status = 1;
         $extra_service_details->save();
             
-        //todo send mail to seller and buyer
+        //todo send mail to book provider and reader
         try {
             //send mail to seller
             $seller_details = User::select('name','email')->find(optional($extra_service_details->order)->seller_id);

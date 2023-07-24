@@ -763,7 +763,7 @@ class SellerController extends Controller
             $orderDetails->total += $total;
             $orderDetails->save();
 
-            //todo send mail to seller and buyer
+            //todo send mail to book provider and reader
             try {
                 //send mail to seller
                 $seller_details = User::select('name','email')->find($orderDetails->seller_id);
@@ -812,7 +812,7 @@ class SellerController extends Controller
         try {
             Mail::to(get_static_option('site_global_email'))->send(new BasicMail([
                 'subject' => __('aA order declined by the seller Booking ID').' '.$request->order_id,
-                'message' => sprintf(__('an order decliined by seller ID: %1$s, a reported created for refund buyer money for Booking ID: $2$s'),$request->report_id,$request->order_id),
+                'message' => sprintf(__('an order decliined by Book Provider ID: %1$s, a reported created for refund buyer money for Booking ID: $2$s'),$request->report_id,$request->order_id),
             ]));
         } catch (\Exception $e) {
             //handle exception

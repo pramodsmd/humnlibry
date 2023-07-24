@@ -528,6 +528,8 @@ Route::group(['prefix' => 'page-builder','middleware' => 'auth:admin','setlang']
     Route::get('/frontend/deactive-users','FrontendUserManageController@deactive_user')->name('admin.all.frontend.deactive.user');
 
     Route::get('/frontend/seller-profile-view/{id}','FrontendUserManageController@sellerProfileView')->name('admin.frontend.seller.profile.view');
+    Route::get('/frontend/reader-profile-view/{id}','FrontendUserManageController@sellerProfileView')->name('admin.frontend.reader.profile.view');
+
     Route::post('/frontend/verify-seller-profile/{id}','FrontendUserManageController@sellerVerify')->name('admin.frontend.seller.profile.verify');
     Route::get('/frontend/seller-verify/all','FrontendUserManageController@sellerAll')->name('admin.frontend.seller.all');
 

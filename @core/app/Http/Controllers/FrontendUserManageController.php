@@ -72,7 +72,7 @@ class FrontendUserManageController extends Controller
                     return $row->id;
                 })
                 ->addColumn('name',function ($row){
-                        $user_type = $row->user_type==0 ? __("Book") : __("Reader");
+                        $user_type = $row->user_type==0 ? __("Book Provider") : __("Reader");
                         return $row->name." "."<".$row->username.">"."(".$user_type.")";
                 })
                 ->addColumn('user_status',function ($row) {
@@ -82,7 +82,11 @@ class FrontendUserManageController extends Controller
                     return $markup;
                 })
                 ->addColumn('user_verify',function ($row) {
+                    if($row->user_type==0){
                     $url = route('admin.frontend.seller.profile.view',$row->id);
+                    }else{
+                        $url = route('admin.frontend.reader.profile.view',$row->id);
+                    }
                     $user_status = optional($row->sellerVerify)->status==1 ? '<span class="text-warning">'. __('Verified') .'</span>' : '<span class="text-info">'. __('Not Verified') .'</span>';
                     $markup = $user_status.'<a class="btn btn-info" href="'.$url.'"><i class="ti-eye"></i></a>';
                     return $markup;
@@ -190,7 +194,13 @@ class FrontendUserManageController extends Controller
    //seller profile view
     public function sellerProfileView($id=null){
         $seller_details = User::with('sellerVerify')->where('id',$id)->first();
-        return view('backend.frontend-user.seller-details',compact('seller_details'));
+        if(!empty($seller_details) && $seller_details->user_type==0){
+            return view('backend.frontend-user.seller-details',compact('seller_details'));
+        }
+        if(!empty($seller_details) && $seller_details->user_type==1){
+            return view('backend.frontend-user.reader-details',compact('seller_details'));
+        }
+
     }
 
     //seller verify

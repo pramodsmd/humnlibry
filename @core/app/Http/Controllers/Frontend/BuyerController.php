@@ -892,7 +892,7 @@ class BuyerController extends Controller
                 ]);
             }
 
-            //todo send mail to seller and buyer
+            //todo send mail to book provider and reader
             try {
                 //send mail to seller
                 $seller_details = User::select('name','email')->find(optional($extra_service_details->order)->seller_id);

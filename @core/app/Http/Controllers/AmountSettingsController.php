@@ -24,11 +24,15 @@ class AmountSettingsController extends Controller
             AmountSettings::where('id',$id)->update([
                'min_amount' => $request->min_amount,
                'max_amount' => $request->max_amount,
+               'fix_charge'=>$request->fix_charge??0,
+               'charge_percent'=>$request->charge_percent??0,
             ]);
         }else{
             AmountSettings::create([
                'min_amount' => $request->min_amount,
                'max_amount' => $request->max_amount,
+               'fix_charge'=>$request->fix_charge,
+               'charge_percent'=>$request->charge_percent,
             ]);
         }
         return redirect()->back()->with(FlashMsg::item_new(__('Update Success')));

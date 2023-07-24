@@ -21,6 +21,7 @@ use Str;
 USE Auth;
 use Session;
 use DB;
+use Modules\Wallet\Entities\Wallet;
 
 class RegisterController extends Controller
 {
@@ -94,6 +95,13 @@ class RegisterController extends Controller
             'service_area' => $data['service_area'],
             'password' => Hash::make($data['password']),
         ]);
+        if(!is_null($user)){
+            Wallet::create([
+            'buyer_id' =>$user->id,
+            'balance' => 0,
+            'status' =>1,
+            ]);
+            }
         return $user;
     }
 
@@ -144,7 +152,15 @@ class RegisterController extends Controller
                 'terms_conditions' =>1,
                 'email_verify_token'=> $email_verify_tokn,
             ]);
+            if(!is_null($user)){
+                Wallet::create([
+                'buyer_id' =>$user->id,
+                'balance' => 0,
+                'status' =>1,
+                ]);
+                }
 
+            
             if($user ){
                 if($request->get_user_type==0){
                     $user_type = 'seller';
