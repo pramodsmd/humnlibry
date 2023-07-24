@@ -7,6 +7,8 @@ Route::group(['prefix' => 'admin-home/wallet','as'=>'admin.wallet.', 'middleware
     Route::get( '/lists', 'Backend\WalletController@wallet_lists')->name('lists');
     Route::post( '/status/{id}', 'Backend\WalletController@change_status')->name('status');
     Route::get( '/history/records', 'Backend\WalletController@wallet_history')->name('history');
+    Route::get( '/history/setting', 'Backend\WalletController@wallet_setting')->name('setting');
+
     Route::post( '/history/records/status/{id}', 'Backend\WalletController@wallet_history_status')->name('history.status');
     Route::post( '/deposit/create-by-admin', 'Backend\WalletController@depositCreateByAdmin')->name('deposit.create');
 });

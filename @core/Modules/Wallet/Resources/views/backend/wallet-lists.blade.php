@@ -38,7 +38,7 @@
                                         <td>{{$loop->iteration}}</td>
                                         <td>
                                             <ul>
-                                                <li><strong>{{__('User Type')}}: </strong>{{optional($data->user)->user_type==1 ? 'Buyer' : 'Seller'}}</li>
+                                                <li><strong>{{__('User Type')}}: </strong>{{optional($data->user)->user_type==1 ? 'Reader' : 'Book Provider'}}</li>
                                                 <li><strong>{{__('Name')}}: </strong>{{optional($data->user)->name}}</li>
                                                 <li><strong>{{__('Email')}}: </strong>{{ optional($data->user)->email}}</li>
                                                 <li><strong>{{__('Phone')}}: </strong>{{ optional($data->user)->phone }}</li>

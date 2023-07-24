@@ -116,6 +116,8 @@
                                 <th>{{ __('Amount') }}</th>
                                 <th>{{ __('Payment gateway') }}</th>
                                 <th>{{ __('Payment Status') }}</th>
+                                <th>{{ __('Payment Type') }}</th>
+                                <th>{{ __('Sender/Receiver') }}</th>
                                 <th>{{ __('Date') }}</th>
                                 <th>{{ __('Reference Image') }}</th>
                             </tr>
@@ -148,6 +150,20 @@
                                             <a href="javascript:void(0)" class="priorityBtn completed">{{ $history->payment_status }}</a>
                                         @endif
                                     </div>
+                                </td>
+                                <td> 
+                                    <div class="dashboard_table__main__date">{{ ucfirst($history->type) }} </div>
+                                </td>
+                                <td> 
+                                    @php 
+                                        $sender_receiver_details=db::table('users')->where('id',$history->sender_receiver_id)->first();
+                                    @endphp
+                                    @if($history->type=='send')
+                                    <div class="dashboard_table__main__date">{{ ucfirst($history->type) }} to {{$sender_receiver_details->name??''}}</div>
+                                    @elseif($history->type=='received')
+                                    <div class="dashboard_table__main__date">{{ ucfirst($history->type) }} from {{$sender_receiver_details->name??''}} </div>
+                                    @endif
+
                                 </td>
                                 <td>
                                     <div class="dashboard_table__main__date">{{ $history->created_at->diffForHumans() }} </div>

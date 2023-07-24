@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Modules\Wallet\Entities\Wallet;
 use Modules\Wallet\Entities\WalletHistory;
+use App\AmountSettings;
 
 class WalletController extends Controller
 {
@@ -46,6 +47,23 @@ class WalletController extends Controller
         return view('wallet::backend.history',compact('wallet_history_lists', 'users'));
     }
 
+
+    public function wallet_setting()
+    {
+        $wallet_history_lists = WalletHistory::with('user')
+            ->latest()
+            ->where('payment_status','!=','')
+            ->get(['id','buyer_id','payment_gateway','payment_status','amount','manual_payment_image']);
+        $users = User::select('id', 'name', 'email', 'phone', 'user_type')->get();
+
+        $amount_settings =AmountSettings::where('type','payout_request')->first();        
+        $amount_deposit  =AmountSettings::where('type','deposit')->first();
+        $amount_transfer =AmountSettings::where('type','transfer')->first();
+        $amount_exchange =AmountSettings::where('type','exchange')->first();
+
+
+        return view('wallet::backend.wallet-setting',compact('wallet_history_lists', 'users','amount_settings','amount_deposit','amount_transfer','amount_exchange'));
+    }
     public function wallet_history_status($id)
     {
         $wallet_history = WalletHistory::find($id);
@@ -63,7 +81,7 @@ class WalletController extends Controller
     {
         $request->validate([
             'amount'=>'required|integer|min:10|max:5000',
-            'buyer_id'=>'required',
+            'user_id'=>'required',
         ]);
 
         //get user_id and deposit amount
@@ -75,7 +93,6 @@ class WalletController extends Controller
         }else{
             $payment_status='';
         }
-
         // first check if user wallet empty create wallet
         if (!empty($user_id)){
             $user_wallet = Wallet::where('buyer_id',$user_id)->first();
