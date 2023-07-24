@@ -7337,7 +7337,7 @@ border-radius: 50px;
 }
 
 
-/* Service Details area */
+/* Book Details area */
 
 .service-details-inner .details-thumb img {
     border-radius: 10px;
@@ -9496,7 +9496,7 @@ border-radius: 50px;
 /* Dashboard Settings */
 
 
-/* Order Status */
+/* Booking Status */
 
 .dashboard-status-list .status-order-list {
     display: -webkit-box;
@@ -10653,7 +10653,7 @@ border-radius: 50px;
 }
 
 
-/* Seller Order Status  */
+/* Seller Booking Status  */
 
 @media only screen and (max-width: 575.98px) {
     .seller-order-status-wrapper .single-seller-status .title {

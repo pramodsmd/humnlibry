@@ -25,7 +25,7 @@
     ## Join area
     ## Signup area
     ## Register Step area
-    ## Service Details area
+    ## Book Details area
     ## Blog Details
     ## Details Tag area
     ## Contact area
@@ -5224,7 +5224,7 @@ code {
   }
 }
 
-/* Service Details area */
+/* Book Details area */
 .service-details-inner .details-thumb img {
   border-radius: 10px;
   width: 100%;
@@ -7176,7 +7176,7 @@ code {
 }
 
 /* Dashboard Settings */
-/* Order Status */
+/* Booking Status */
 .dashboard-status-list .status-order-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8132,7 +8132,7 @@ code {
   }
 }
 
-/* Seller Order Status  */
+/* Seller Booking Status  */
 @media only screen and (max-width: 575.98px) {
   .seller-order-status-wrapper .single-seller-status .title {
     text-align: center;

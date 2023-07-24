@@ -25,7 +25,7 @@
     ## Join area
     ## Signup area
     ## Register Step area
-    ## Service Details area
+    ## Book Details area
     ## Blog Details
     ## Details Tag area
     ## Contact area
@@ -3974,7 +3974,7 @@ code {
   color: var(--new-main-color-three);
 }
 
-/* Service Details area */
+/* Book Details area */
 .new_serviceDetails {
   border: 1px solid var(--new-border-color);
   padding: 20px;

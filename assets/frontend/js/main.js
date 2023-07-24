@@ -227,7 +227,7 @@
         });
 
         /*----------------------
-            Service Details Slider
+            Book Details Slider
         -----------------------*/
 
         $('.service-details-slider').slick({
